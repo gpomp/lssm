@@ -1,6 +1,19 @@
 //Footer specific stylings
 .left {
     float:left;
+
+    .contact {
+        font-size: 90%;
+        margin-top: 10px;
+        div, a {
+            margin-top: 5px;
+        }
+        a {
+            text-decoration: underline;
+            color: white;
+            display: block;
+        }
+    }
 }
 
 .right {

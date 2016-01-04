@@ -1,6 +1,13 @@
 <footer class="content-info" role="contentinfo">
   <div class="container">
-    <div class="left">{{default.footer_gauche}}</div>
+    <div class="left">
+        <div class="copyright">{{default.footer_gauche}}</div>
+        <div class="contact">
+            <div class="address">{{default.adresse}}, {{default.cp_ville}}</div>
+            <a href="mailto:{{default.email}}">{{default.email}}</a>
+            <div class="tel">{{default.tel}}</div>
+        </div>
+    </div>
     <div class="right">
         {% if default.facebook_liens|length != 0 %}
         <a target="_blank" href="{{default.facebook_liens}}" class="icon-facebook"></a>
