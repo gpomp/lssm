@@ -10,13 +10,6 @@
 	/**
 	* 	Add custom timber routes
 	*/
-	/*Timber::add_route('news/page/:paged', function($params){
-    	Timber::load_template('page-news.php', false, 200, $params);
-	});*/
-
-	add_action('get_first_image', 'image_in_post');
-
-	add_action('get_loc_page_link', 'get_loc_page_link');
 
 	Timber::add_route('blog/page/:paged', function($params){
     	Timber::load_template('blog.php', false, 200, $params);
@@ -170,11 +163,13 @@
 				list($largeWidth, $largeHeight) = array( get_option('large_size_w'), get_option('large_size_h'));
 				list($oldWidth, $oldHeight)     = getimagesize($filePath);
 				list($newWidth, $newHeight)     = wp_constrain_dimensions($oldWidth, $oldHeight, $largeWidth, $largeHeight);
-				$resizeImageResult = image_resize($filePath, $newWidth, $newHeight, false, null, null, $quality);
+				$resizeImageResult = wp_get_image_editor( $filePath );//image_resize($filePath, $newWidth, $newHeight, false, null, null, $quality);
 				unlink($filePath);
 				if (!is_wp_error($resizeImageResult)) {
+					$resizeImageResult->resize( $newWidth, $newHeight, false );
+					$resizeImageResult->set_quality( $quality );
 					$newFilePath = $resizeImageResult;
-					rename($newFilePath, $filePath);
+					$resizeImageResult->save($filePath);
 				} else {
 					$params = wp_handle_upload_error(
 						$filePath,
