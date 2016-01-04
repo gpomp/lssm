@@ -7,12 +7,14 @@
                 <div class="swiper-slide">
                     <div class="table">
                         <div class="table-cell">
-                            <img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/>
-                            {% if item.legende and item.legende|length > 0 %}
-                                <div class="caption">
-                                    {{item.legende}}
-                                </div>
-                            {% endif %}
+                            <div class="inner-slide">
+                                <img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/>
+                                {% if item.legende and item.legende|length > 0 %}
+                                    <div class="caption">
+                                        {{item.legende}}
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>

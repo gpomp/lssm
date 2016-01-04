@@ -39,6 +39,24 @@ button, input, select, textarea {
 
     .swiper-slide {
         position: relative;
+
+        .inner-slide {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .caption {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            font-size: 95%;
+            color: white;
+            background: rgba(0, 0, 0, 0.75);
+            bottom: 0;
+            left: 0;
+            padding: 10px 10px 30px 10px;
+        }
     }
 }
 
