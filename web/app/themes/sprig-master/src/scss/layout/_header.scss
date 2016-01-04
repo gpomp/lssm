@@ -50,6 +50,7 @@ header.banner {
             a {
                 color: white;
                 border-bottom: 1px solid transparent;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.59);
 
                 &:hover {
                     text-decoration: none;
@@ -79,6 +80,11 @@ header.banner {
             display: none;
         }
 
+        nav.main-nav {
+            ul > li a {
+                text-shadow: none;
+            }
+        }
 
     }
 }
