@@ -17,11 +17,6 @@ foreach (require($env_config) as $key => $value) {
 	define($key, $value);
 }
 
-/**
- * Enable caching
- */
-define('WP_CACHE', true);
-define('WPCACHEHOME', __DIR__ . '/../web/app/plugins/wp-super-cache/');
 
 /**
  * Custom Content Directory
