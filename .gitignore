@@ -9,13 +9,12 @@ sql-dump-*.sql
 .env.php
 !.env.example.php
 
+*.pem
+
 # Application
 web/app/plugins/*
-!web/app/plugins/advanced-custom-fields-pro/
-!web/app/plugins/.gitkeep
-web/app/upgrade
+!web/app/plugins/acf-repeater/
 web/app/uploads/*
-!web/app/uploads/.gitkeep
 
 # Vendor (e.g. Composer)
 vendor/*
@@ -34,13 +33,3 @@ web/app/themes/sprig-master/node_modules/
 web/app/themes/sprig-master/vendor/
 web/app/themes/sprig-master/dist/
 web/app/themes/sprig-master/.sass-cache/
-
-#generated files
-web/app/themes/onecoffee/assets/css/main.css
-
-web/app/themes/onecoffee/assets/fonts/Glyph*
-
-web/app/themes/onecoffee/assets/js/vendor.js
-web/app/themes/onecoffee/assets/js/app.js
-web/app/themes/onecoffee/assets/js/modernizr.js
-web/app/themes/onecoffee/assets/js/ie.js
