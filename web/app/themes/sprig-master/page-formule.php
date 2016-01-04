@@ -27,22 +27,26 @@ if(isset($_POST['formule'])) {
     $formule = $_POST['formule'];
     $autre = $_POST['autre'];
 
-    $message = "nom: $nom<br/>
-                prenom: $prenom<br/>
-                tel: $tel<br/>
-                email: $email<br/>
-                date de rencontre: $jour/$mois<br/>
-                rencontre: $rencontre<br/>
-                lieu de l'evenement: $lieu<br/>
-                occasion: $occasion<br/>
-                nombre d'invites: $nombre<br/>
-                date de l'evenement: $evjour/$evmois<br/>
-                Formule: $formule<br/>
-                Autres details: $autre<br/>
+    $message = "nom: $nom
+                prenom: $prenom
+                tel: $tel
+                email: $email
+                date de rencontre: $jour/$mois
+                rencontre: $rencontre
+                lieu de l'evenement: $lieu
+                occasion: $occasion
+                nombre d'invites: $nombre
+                date de l'evenement: $evjour/$evmois
+                Formule: $formule
+                Autres details: $autre
     ";
 
+    $headers = 'From: gauthier.pompougnac@gmail.com' . "\r\n" .
+    'Reply-To: gauthier.pompougnac@gmail.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
     
-    if(mail($to, $subject, $message)) {
+    if(mail($to, $subject, $message, $headers)) {
         $context['confirmation'] = 1;
     } else {
         $context['confirmation'] = -1;
