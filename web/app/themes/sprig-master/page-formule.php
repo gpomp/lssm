@@ -28,21 +28,20 @@ if(isset($_POST['formule'])) {
     $autre = $_POST['autre'];
 
     $message = "nom: $nom
-                prenom: $prenom
-                tel: $tel
-                email: $email
-                date de rencontre: $jour/$mois
-                rencontre: $rencontre
-                lieu de l'evenement: $lieu
-                occasion: $occasion
-                nombre d'invites: $nombre
-                date de l'evenement: $evjour/$evmois
-                Formule: $formule
-                Autres details: $autre
-    ";
+    prenom: $prenom
+    tel: $tel
+    email: $email
+    date de rencontre: $jour/$mois
+    rencontre: $rencontre
+    lieu de l'evenement: $lieu
+    occasion: $occasion
+    nombre d'invites: $nombre
+    date de l'evenement: $evjour/$evmois
+    Formule: $formule
+    Autres details: $autre";
 
-    $headers = 'From: gauthier.pompougnac@gmail.com' . "\r\n" .
-    'Reply-To: gauthier.pompougnac@gmail.com' . "\r\n" .
+    $headers = 'From: lessoeurs.senmelent@gmail.com' . "\r\n" .
+    'Reply-To: lessoeurs.senmelent@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
     
