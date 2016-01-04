@@ -26,6 +26,8 @@ if(isset($_POST['formule'])) {
     $evmois = $_POST['ev-mois'];
     $formule = $_POST['formule'];
     $autre = $_POST['autre'];
+    $min = $_POST['minBudget'];
+    $max = $_POST['maxBudget'];
 
     $message = "nom: $nom
     prenom: $prenom
@@ -37,6 +39,7 @@ if(isset($_POST['formule'])) {
     occasion: $occasion
     nombre d'invites: $nombre
     date de l'evenement: $evjour/$evmois
+    Budget: de $min à $max euros
     Formule: $formule
     Autres details: $autre";
 

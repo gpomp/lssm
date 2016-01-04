@@ -66,6 +66,11 @@
                 <input type="number" name="nombre" id="nombre">
             </div>
             <div class="gr-6">
+                <label for="budget">Quel est votre budget ?</label>
+                Entre <input type="number" class="tiny" value="{{ post.prix_minimum }}" name="minBudget" id="minBudget"> 
+                et <input type="number" class="tiny" value="{{ post.prix_maximum }}" name="maxBudget" id="maxBudget"> Euros.
+            </div>
+            <div class="gr-6">
                 <label for="date">Pour quelle date ?</label>
                 <div class="select-style tiny">
                     <select id="ev-jour" name="ev-jour">

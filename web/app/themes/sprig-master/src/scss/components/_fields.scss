@@ -74,6 +74,10 @@ input[type=text], input[type=number], input[type=email], textarea {
     border-radius: 5px;
     padding: 7px 4px;
     display: inline-block;
+
+    &.tiny {
+    	width: 100px;
+    }
 }
 
 input[type=submit] {
