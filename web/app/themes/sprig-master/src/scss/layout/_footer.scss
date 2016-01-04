@@ -1,0 +1,23 @@
+//Footer specific stylings
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+footer {
+    margin-top: 50px;
+    background: black;
+    & > div.container {
+        padding: $doublevertMargin 0;
+        color: white;
+
+        .right {
+            a:hover {
+                text-decoration: none;
+                color:white;
+            }
+        }
+    }
+}

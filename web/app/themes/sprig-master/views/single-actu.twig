@@ -1,0 +1,46 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="blog-wrapper">
+                <h1>{{ post.title }}</h1>
+
+                <div class="text-content">
+                    {{ post.content }}
+                </div>
+
+                {# Images #}
+                {% include "includes/swiper.twig" with 
+                    { list: post.get_field('slideshow') } 
+                %}
+
+                {# Video #}
+                {% if ytID|length > 0 %}
+                <div class="video-wrapper">
+                    <div class="video">
+                        <iframe id="ytplayer" width="640" height="390" src="http://www.youtube.com/embed/{{ytID}}?origin=http://example.com" frameborder="0"></iframe>
+                    </div>
+                </div>
+                {% endif %}
+                {# Links #}
+                {% if post.get_field('telechargements')[0] is defined %}
+                <div class="links-content">
+                    <h2>Telechargements</h2>
+                    <ul>
+                        {% for tel in post.get_field('telechargements') %}
+                            <li><a href="{{tel.liens.url}}">{{tel.liens.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <div class="single-footer">
+                    <a class="round-btn" href="{{function('get_permalink', 17)}}">Revenir au blog</a>
+                </div>
+
+            </div>
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}

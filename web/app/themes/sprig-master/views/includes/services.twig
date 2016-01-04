@@ -1,0 +1,16 @@
+<div class="deco formule-ctn">
+   <h2>{{ post.titre_services }}</h2>
+
+   <div class="list grid-ctn">
+      {% for item in post.get_field('services') %}
+          <div class="gr-3">
+            <a href="{{ item.liens }}">
+              <div class="table">
+                <div class="table-cell"><div class="link-center">{{ item.label }}</div></div>
+              </div>
+            </a>
+          </div>
+      {% endfor %}
+   </div>
+
+</div>

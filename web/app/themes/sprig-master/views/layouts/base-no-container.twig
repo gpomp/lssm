@@ -1,0 +1,26 @@
+{% include('includes/head.twig') %}
+
+<body class="{{ body_class }}" >
+
+  {% include('includes/header.twig') %}
+
+  <div class="wrap" role="document">
+    <div class="top-rotate">
+      <div></div>
+    </div>
+    <div>
+        <div>
+          {% block content %}{% endblock %}
+        </div><!-- /.content -->
+      </div>
+  </div><!-- /.wrap -->
+
+  {% include('includes/footer.twig') %}
+
+  {{ wp_footer }}
+
+  <script type="text/javascript" src="/app/themes/sprig-master/dist/js/vendor.js"></script>
+  <script type="text/javascript" src="/app/themes/sprig-master/dist/js/main.js"></script>
+
+</body>
+</html>

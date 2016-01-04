@@ -1,0 +1,114 @@
+<div class="formule-ctn form">
+
+    <h2>{{ post.titre_formulaire }}</h2>
+
+
+    {% if confirmation is defined %}
+        {% if confirmation == 1 %}
+            Merci, votre email a bien ete envoyer. 
+        {% else %}
+            Un probleme est survenu lors de l'envoi de votre email. Veuillez reessayer plus tard ou contacter l'administrateur du site.
+        {% endif %}
+    {% else %}
+    <form id="formule-form" action="{{ post.permalink }}#form" method="post">
+        <div class="grid-ctn">
+            <div class="gr-6">
+                <label for="nom">Nom<div>*</div></label>
+                <input type="text" name="nom" id="nom" required>
+            </div>
+            <div class="gr-6">
+                <label for="prenom">Prenom<div>*</div></label>
+                <input type="text" name="prenom" id="prenom" required>
+            </div>
+            <div class="gr-6">
+                <label for="tel">Telephone</label>
+                <input type="text" name="tel" id="tel">
+            </div>
+            <div class="gr-6">
+                <label for="email">Email<div>*</div></label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="row">
+                <div class="gr-6">
+                    <label for="jour">Quels sont vos disponibilites pour nous rencontrer ?</label>
+                    <div class="select-style tiny">
+                        <select id="jour" name="jour">
+                            <option>Jour</option>
+                            {% for i in 1..31 %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="select-style tiny">
+                        <select id="mois" name="mois">
+                            <option>Mois</option>
+                            {% for j in range(1, 12) %}
+                                <option>{{ date('2012-' ~ j ~ '-01') |date('M') }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="gr-6">
+                    <label for="rencontre">Ou souhaitez vous nous rencontrer ?</label>
+                    <input type="text" name="rencontre" id="rencontre">
+                </div>
+            </div>
+            <div class="gr-6">
+                <label for="lieu">Dans quel lieu aura l'evenement prendra t'il place ?</label>
+                <input type="text" name="lieu" id="lieu">
+            </div>
+            <div class="gr-6">
+                <label for="occasion">Pour quelle occasion ?</label>
+                <input type="text" name="occasion" id="occasion">
+            </div>
+            <div class="gr-6">
+                <label for="nombre">Combien serez vous ?</label>
+                <input type="number" name="nombre" id="nombre">
+            </div>
+            <div class="gr-6">
+                <label for="date">Pour quelle date ?</label>
+                <div class="select-style tiny">
+                    <select id="ev-jour" name="ev-jour">
+                        <option>Jour</option>
+                        {% for i in 1..31 %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="select-style tiny">
+                    <select id="ev-mois" name="ev-mois">
+                        <option>Mois</option>
+                        {% for j in range(1, 12) %}
+                            <option>{{ date('2012-' ~ j ~ '-01') |date('M') }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid-ctn">
+            <div class="gr-6">
+                <label for="formule">La formule qui vous interesse<div>*</div></label>
+                <div class="select-style">
+                    <select id="formule" name="formule" required>
+                        <option>Formule 1</option>
+                        <option>Formule 2</option>
+                        <option>Formule 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gr-6">
+                <label for="date">Autres informations</label>
+                <textarea id="autre" name="autre"></textarea>
+            </div>
+        </div>
+        <div class="grid-ctn">
+            <div class="gr-2 form-button"><input type="submit" value="envoyer"></div>
+        </div>
+            
+            
+        
+    </form>
+
+    {% endif %}
+</div>

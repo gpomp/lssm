@@ -1,0 +1,20 @@
+<div class="deco formule-ctn">
+   <h2>{{ post.titre_deco }}</h2>
+
+   <div class="list">
+       <ul>
+            {% for item in post.get_field('deco') %}
+                <li>
+                    <div class="img-holder">
+                      <div class="image"><img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/></div>
+                    </div>
+                    <div class="descr">
+                        <h3>{{item.titre}}</h3>
+                        <p>{{item.description}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+       </ul>
+   </div>
+
+</div>

@@ -1,0 +1,101 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="box-wrapper">
+                <div class="box-intro">
+                    <div class="block-content">
+                        <div class="container">
+                            <div class="content">
+                                <div class="formule-ctn intro">
+                                    <a name="intro"></a>
+                                    <h1>{{ post.title }}</h1>
+                                    <div class="text">{{ post.content }}</div>
+                                    
+                                    {% include "includes/swiper.twig" with 
+                                        { list: post.get_field('images') } 
+                                    %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion">
+                {% for box in post.get_field( 'box_list' ) %}
+                    
+                    {% if loop.index is divisible by(2) %}
+                    <div class="block-content">
+                    {% else %}
+                    <div class="block-content light">
+                    {% endif %}
+                        <div class="container">
+                            <div class="content acc-ctn">
+                                <a href="#" class="acc-cta"><h2>{{ box.titre_box }}</h2></a>
+                                <div class="wrapper-box acc-drawer">
+                                    <div class="grid-ctn">
+                                        <div class="gr-5">
+                                            <img src="{{ TimberImage(box.image).src }}" alt="{{ TimberImage(box.image).alt }}"/>
+                                        </div>
+                                        <div class="gr-1"></div>
+                                        <div class="gr-6">
+                                            {{ box.descr_box }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    
+                    </div>
+                </div>
+
+                <div class="block-content">
+                    <div class="container">
+                        <div class="content">
+                            <div class="form">
+                                <h2>Commander une Box</h2>
+                                <form action="{{ post.permalink }}" method="post"  id="box-form">
+                                    <div class="grid-ctn">
+                                        <div class="gr-6">
+                                            <label for="nom">Nom<div>*</div></label>
+                                            <input type="text" name="nom" id="nom" required>
+                                        </div>
+                                        <div class="gr-6">
+                                            <label for="prenom">Prenom<div>*</div></label>
+                                            <input type="text" name="prenom" id="prenom" required>
+                                        </div>
+                                        <div class="gr-6">
+                                            <label for="tel">Telephone</label>
+                                            <input type="text" name="tel" id="tel">
+                                        </div>
+                                        <div class="gr-6">
+                                            <label for="email">Email<div>*</div></label>
+                                            <input type="email" name="email" id="email" required>
+                                        </div>
+                                        <div class="gr-12">
+                                            <label for="box">Quelle box voudriez-vous acheter<div>*</div></label>
+                                            <div class="select-style">
+                                                <select id="box" name="box" required>
+                                                    {% for box in post.get_field( 'box_list' ) %}
+                                                        <option value="{{box.titre_box}}">{{box.titre_box}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="gr-2">
+                                            <input type="submit" value="envoyer">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}

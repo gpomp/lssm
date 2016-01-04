@@ -1,0 +1,18 @@
+<footer class="content-info" role="contentinfo">
+  <div class="container">
+    <div class="left">{{default.footer_gauche}}</div>
+    <div class="right">
+        {% if default.facebook_liens|length != 0 %}
+        <a target="_blank" href="{{default.facebook_liens}}" class="icon-facebook"></a>
+        {% endif %}
+
+        {% if default.instagram_liens|length != 0 %}
+        <a target="_blank" href="{{default.instagram_liens}}" class="icon-instagram"></a>
+        {% endif %}
+
+        {% if default.twitter_liens|length != 0 %}                        
+        <a target="_blank" href="{{default.twitter_liens}}" class="icon-twitter"></a>
+        {% endif %}
+    </div>
+  </div>
+</footer>

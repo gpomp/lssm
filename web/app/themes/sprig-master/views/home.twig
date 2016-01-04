@@ -1,0 +1,172 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="title">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="home-content">
+                            <h1>{{post.titre_principal}}</h1>
+                            <p>{{post.sous_titre}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-content">
+                <div class="container">
+                    <div class="grid-ctn blog-grid">
+                        <div class="gr-6">
+                            <h2>Derniere Actu</h2>                            
+                                {% if actu|length > 0 %}
+                                <div class="blog-block">
+                                {% set lastActu = actu[0] %}
+                               
+                                <a href="{{lastActu.link}}">
+                                {% if lastActu.get_field('slideshow')[0] is defined %}
+                                {% set image = lastActu.get_field('slideshow')[0] %}
+                                    <div class="image"><img src="{{TimberImage(lastActu.get_field('slideshow')[0].image).src('medium')}}"></div>
+                                {% endif %}
+
+                                <div class="text">                                    
+                                    <div class="date">
+                                        <span class="day">{{lastActu.date('j')}}</span>
+                                        <span class="month">{{lastActu.date('F')}}</span>
+                                    </div>
+                                    <h3>{{lastActu.title}}</h3>
+
+                                    {{lastActu.content|excerpt(30)}}
+
+                                    <div class="btn-wrapper"><div class="round-btn invert">Lire la suite...</div></div>
+                                </div>
+                                
+                                </a>
+                            </div>
+                            {% endif %}
+                             
+
+                        </div>
+                        <div class="gr-6">
+                            <h2>Dernier Projet</h2>
+                            {% if projet|length > 0 %}                            
+                                <div class="blog-block">
+                                    {% set lastProjet = projet[0] %}
+                                    <a href="{{lastProjet.link}}">     
+                                    {% if lastProjet.get_field('slideshow')[0] is defined %}
+                                    {% set image = lastProjet.get_field('slideshow')[0] %}
+                                        <div class="image"><img src="{{TimberImage(lastProjet.get_field('slideshow')[0].image).src('medium')}}"></div>
+                                    {% endif %}
+                                    <div class="text">                           
+                                        <div class="date">
+                                            <span class="day">{{lastProjet.date('j')}}</span>
+                                            <span class="month">{{lastProjet.date('F')}}</span>
+                                        </div>
+                                        <h3>{{lastProjet.title}}</h3>
+                                        {{lastProjet.content|excerpt(30)}}
+
+                                        <div class="btn-wrapper"><div class="round-btn invert">Lire la suite...</div></div>
+                                    </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-content dark menu-items">
+                <div class="container">
+                    <div class="grid-ctn">
+                        <div class="gr-3">
+                            <a href="{{function('get_permalink', 20)}}">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <h2>{{post.get_field('soeurs_titre')}}</h2>
+                                        <p>{{post.get_field('soeurs_descr')}}</p>
+                                        <div class="btn-wrapper"><div class="round-btn white">Continuer</div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="gr-3">
+                            <a href="{{function('get_permalink', 28)}}">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <h2>{{post.get_field('formules_titre')}}</h2>
+                                        <p>{{post.get_field('formules_descr')}}</p>
+                                        <div class="btn-wrapper"><div class="round-btn white">Continuer</div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="gr-3">
+                            <a href="{{function('get_permalink', 15)}}">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <h2>{{post.get_field('box_titre')}}</h2>
+                                        <p>{{post.get_field('box_descr')}}</p>
+                                        <div class="btn-wrapper"><div class="round-btn white">Continuer</div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="gr-3">
+                            <a href="{{function('get_permalink', 17)}}">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <h2>{{post.get_field('blog_titre')}}</h2>
+                                        <p>{{post.get_field('blog_descr')}}</p>
+                                        <div class="btn-wrapper"><div class="round-btn white">Continuer</div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-content">
+                <div class="container">
+                    <h2>{{post.get_field('social_titre')}}</h2>
+                    <p>{{post.get_field('social_descr')}}</p>
+                    <div class="social-ctn">
+                        {% if default.facebook_liens|length != 0 %}
+                        <a target="_blank" href="{{default.facebook_liens}}">
+                            <div class="table">
+                                <div class="table-cell">
+                                    <div class="icon-facebook"></div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+
+                        {% if default.instagram_liens|length != 0 %}
+                        <a target="_blank" href="{{default.instagram_liens}}">
+                            <div class="table">
+                                <div class="table-cell">
+                                    <div class="icon-instagram"></div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+
+                        {% if default.twitter_liens|length != 0 %}                        
+                        <a target="_blank" href="{{default.twitter_liens}}">
+                            <div class="table">
+                                <div class="table-cell">
+                                    <div class="icon-twitter"></div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}

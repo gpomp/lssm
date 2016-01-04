@@ -1,0 +1,55 @@
+button, input, select, textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+}
+@import "lists";
+@import "tables";
+@import "buttons";
+@import "fields";
+@import "comments";
+@import "wp-fixes";
+@import "/app/themes/sprig-master/vendor/swiper/dist/css/swiper.css";
+
+@import "../../node_modules/gridle/sass/gridle/gridle"; 
+
+@include gridle_setup( (
+    context : 12,
+    gutter-width : $vertMargin,
+    direction : ltr
+) );
+
+
+@include gridle_generate_classes ( );
+
+.grid-ctn {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-pagination-bullet-active {
+    background: $dominant;
+}
+
+.swiper-container {
+    img {
+        width: 100%;
+    }
+
+    .swiper-slide {
+        position: relative;
+    }
+}
+
+.swiper-button-prev {
+    @include icon(arrow-left);
+}
+
+.swiper-button-next {
+    @include icon(arrow-right);
+}
+
+.swiper-button-prev, .swiper-button-next {
+    margin: 0;
+}

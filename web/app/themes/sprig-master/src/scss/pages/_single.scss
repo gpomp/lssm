@@ -1,0 +1,24 @@
+body.single {
+    .text-content {
+        margin: $vertMargin 0;
+    }
+
+    .swiper-content {
+        margin: $vertMargin auto;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        position: relative;
+        margin: $vertMargin 0;
+        text-align: center;
+
+        & > .video {
+            display: inline-block;
+        }
+    }
+
+    .single-footer {
+        margin-top: $doublevertMargin;
+    }
+}

@@ -1,0 +1,31 @@
+{% if isHome %}
+<header class="banner navbar navbar-static-top" role="banner">
+{% elseif TimberImage(post.get_field('image_banniere')).src is empty %}
+<header class="banner navbar navbar-static-top" role="banner" style="background-image: url({{TimberImage(default.get_field('image_banniere')).src}}); background-size:cover; background-position: center; ">
+{% else %}
+<header class="banner navbar navbar-static-top" role="banner" style="background-image: url({{TimberImage(post.get_field('image_banniere')).src}}); background-size:cover; background-position: center;">
+{% endif %}
+  <div class="container">
+    <div class="head-contacts">
+        <div class="contacts">
+            <div class="address">{{default.adresse}}, {{default.cp_ville}}</div>
+            <a href="mailto:{{default.email}}">{{default.email}}</a>
+            <div class="tel">{{default.tel}}</div>
+        </div>
+
+        <div class="social"></div>
+    </div>
+
+    <nav class="main-nav content" role="navigation">
+            <div>
+
+                <ul>
+                    <li id="menu-item-home" class="menu-item menu-item-type-home {% if post.slug == 'home' %} current {% endif %}"><a href="{{function('get_permalink', 4)}}">Home</a></li>
+                {% for item in menu.items %}
+                    <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}} {{item.slug}} {% if post.slug == item.slug %} current {% endif %}"><a href="{{item.link}}">{{item.title}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+body.page-template-box-php {
+
+    .wrap > .container {
+        max-width: none;
+
+        .content {
+            padding: 0;
+        }
+    }
+    .block-content {
+
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .grid-ctn img {
+            max-width: 100%;
+        }
+    }
+}

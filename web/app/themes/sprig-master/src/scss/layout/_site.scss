@@ -1,0 +1,244 @@
+// Site specific styles
+.content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-left: $vertMargin;
+    padding-right: $vertMargin;
+}
+
+.grid-ctn {
+    .row {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrap {
+    width: 100%;
+    background: white;
+    position: relative;
+
+    margin-top: 400px;
+
+
+    .top-rotate {
+            overflow: visible;
+        & > div {
+            position: absolute;
+            height: 150px;
+            transform: rotate(1deg) translate(-50%, 0);
+            top: -20px;
+            background: white;
+            width: 200%;
+        }
+    }
+
+    .block-content {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+        &.dark {
+            background: $secondBG;
+            color: white;
+        }
+
+        &.light {
+            background: $thirdBG;
+        }
+    }
+}
+
+.swiper-content {
+    position: relative;
+    overflow: hidden;
+    width: 550px;
+    max-width: 100%;
+    margin: $doublevertMargin auto;
+}
+
+
+.form {
+    .grid-ctn {
+        .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
+            margin-bottom: $vertMargin;
+        }
+    }
+}
+
+
+.pagination {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-top: $doublevertMargin;
+    & > a, & > ul {
+        display: inline-block;
+    }
+
+    .next, .prev {
+        margin: 0 15px;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
+
+.grid-ctn {
+    .grid-block {
+        padding: $vertMargin;
+        border-radius: 10px;
+    }
+}
+
+.accordion {
+    .acc-ctn {
+        .acc-drawer {
+            overflow: hidden;
+            max-height: 0;
+            position: relative;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .acc-cta {
+            &:hover {
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+
+        &.open {
+
+            .acc-cta {
+                color:black;
+            }
+
+            .acc-drawer {
+                max-height: 1000px;
+                transition: max-height 0.4s ease-out;
+            }
+        }
+    }
+}
+
+.blog-grid {
+
+
+
+    body.blog & {
+        .blog-block {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .blog-block, .blog-block > a {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        color: black;
+
+        div.image {
+            width: 30%;
+            float: left;
+            overflow: hidden;
+            max-height: 170px;
+            img {
+                min-width: 100%;
+            }
+
+            .type-band {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                background: $dominant;
+                text-transform: uppercase;
+                font-size: 90%;
+                padding: 5px 0;
+                width: 200px;
+                text-align: center;
+                transform: rotate(-33deg) translate(-45px, 0px);
+            }
+        }
+
+        div.text {
+            width: 70%;
+            float: left;
+            padding: 0 20px 0 15px;
+
+            div.date {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                color:$dominant;
+
+                .day {
+                    font-size: 200%;
+                    display: block;
+                }
+
+                .month {
+                    font-size: 120%;
+                    text-transform: uppercase;
+                }
+
+                h3 {
+                    color: black;
+                    font-size: 180%;
+                }
+
+                p {
+                    color: black;
+                }
+            }
+
+            .btn-wrapper {
+                margin-top: 20px;                
+            }
+
+            .round-btn {
+                display: inline-block;
+
+                border-color: $dominant;
+            }
+        }
+    }
+
+    a:hover {
+
+        div.image {
+            .type-band {
+                background: white;
+                color: $dominant;
+            }
+        }
+
+        div.text {
+            .round-btn {
+                border-color: transparent;
+                background: $dominant;
+                color: white;
+            }
+        }
+    }
+}

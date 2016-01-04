@@ -1,0 +1,31 @@
+<div class="swiper-content">
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% for item in list %}
+                <div class="swiper-slide">
+                    <div class="table">
+                        <div class="table-cell">
+                            <img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/>
+                            {% if item.legende and item.legende|length > 0 %}
+                                <div class="caption">
+                                    {{item.legende}}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev icon-glyph"></div>
+    <div class="swiper-button-next icon-glyph"></div>
+    
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>

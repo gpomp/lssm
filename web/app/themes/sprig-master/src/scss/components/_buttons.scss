@@ -1,0 +1,61 @@
+//Button stylings
+a {
+    color: $dominant;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.icon-glyph {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: $dominant;
+    font-size: 140%;
+    overflow: hidden;
+    padding: 9px 0 0 9px;
+    &:hover {
+        background: $dominant;
+        color: white;
+    }
+}
+
+.round-btn {
+    display: inline-block;
+    background: $dominant;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+
+    &:hover {
+        background: white;
+        color: $dominant;
+        text-decoration: none;
+        border-color: $dominant;
+    }
+
+    &.invert {
+        background: white;
+        color: $dominant;
+        &:hover {
+            background: $dominant;
+            color: white;
+            border-color:white;
+        }
+    }
+
+    &.white {
+        border-color: white;
+        background: transparent;
+
+        &:hover {
+            background: white;
+            color: black;
+        }
+    }
+}

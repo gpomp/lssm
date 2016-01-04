@@ -1,0 +1,14 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <h1>Les soeurs</h1>
+            <div class="grid-ctn">
+                <div class="gr-5"><img src="{{ TimberImage(post.photo).src }}" alt="{{ TimberImage(post.photo).alt }}"/></div>
+                <div class="gr-1"></div>
+                <div class="gr-6">{{post.get_field('description')}}</div>
+            </div>
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}
