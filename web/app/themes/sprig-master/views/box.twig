@@ -58,18 +58,25 @@
                         <div class="content">
                             <div class="form">
                                 <h2>Commander une Box</h2>
-                                <form action="{{ post.permalink }}" method="post"  id="box-form">
+                                {% if confirmation is defined %}
+                                    {% if confirmation == 1 %}
+                                        Merci, votre email a bien été envoyé. 
+                                    {% else %}
+                                        Un problème est survenu lors de l'envoi de votre email. Veuillez réessayer plus tard ou contacter l'administrateur du site.
+                                    {% endif %}
+                                {% else %}
+                                <form action="{{ post.permalink }}#form" method="post"  id="box-form">
                                     <div class="grid-ctn">
                                         <div class="gr-6">
                                             <label for="nom">Nom<div>*</div></label>
                                             <input type="text" name="nom" id="nom" required>
                                         </div>
                                         <div class="gr-6">
-                                            <label for="prenom">Prenom<div>*</div></label>
+                                            <label for="prenom">Prénom<div>*</div></label>
                                             <input type="text" name="prenom" id="prenom" required>
                                         </div>
                                         <div class="gr-6">
-                                            <label for="tel">Telephone</label>
+                                            <label for="tel">Téléphone</label>
                                             <input type="text" name="tel" id="tel">
                                         </div>
                                         <div class="gr-6">
@@ -91,6 +98,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

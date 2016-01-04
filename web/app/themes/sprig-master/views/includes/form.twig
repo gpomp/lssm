@@ -5,9 +5,9 @@
 
     {% if confirmation is defined %}
         {% if confirmation == 1 %}
-            Merci, votre email a bien ete envoyer. 
+            Merci, votre email a bien été envoyé. 
         {% else %}
-            Un probleme est survenu lors de l'envoi de votre email. Veuillez reessayer plus tard ou contacter l'administrateur du site.
+            Un problème est survenu lors de l'envoi de votre email. Veuillez réessayer plus tard ou contacter l'administrateur du site.
         {% endif %}
     {% else %}
     <form id="formule-form" action="{{ post.permalink }}#form" method="post">
@@ -17,11 +17,11 @@
                 <input type="text" name="nom" id="nom" required>
             </div>
             <div class="gr-6">
-                <label for="prenom">Prenom<div>*</div></label>
+                <label for="prenom">Prénom<div>*</div></label>
                 <input type="text" name="prenom" id="prenom" required>
             </div>
             <div class="gr-6">
-                <label for="tel">Telephone</label>
+                <label for="tel">Téléphone</label>
                 <input type="text" name="tel" id="tel">
             </div>
             <div class="gr-6">
@@ -49,12 +49,12 @@
                     </div>
                 </div>
                 <div class="gr-6">
-                    <label for="rencontre">Ou souhaitez vous nous rencontrer ?</label>
+                    <label for="rencontre">Où souhaitez vous nous rencontrer ?</label>
                     <input type="text" name="rencontre" id="rencontre">
                 </div>
             </div>
             <div class="gr-6">
-                <label for="lieu">Dans quel lieu aura l'evenement prendra t'il place ?</label>
+                <label for="lieu">Dans quel lieu l'événement prendra t'il place ?</label>
                 <input type="text" name="lieu" id="lieu">
             </div>
             <div class="gr-6">
@@ -88,7 +88,7 @@
         
         <div class="grid-ctn">
             <div class="gr-6">
-                <label for="formule">La formule qui vous interesse<div>*</div></label>
+                <label for="formule">La formule qui vous intéresse<div>*</div></label>
                 <div class="select-style">
                     <select id="formule" name="formule" required>
                         <option>Formule 1</option>
