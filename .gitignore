@@ -10,6 +10,7 @@ sql-dump-*.sql
 !.env.example.php
 
 *.pem
+*.ppk
 
 # Application
 web/app/plugins/*
