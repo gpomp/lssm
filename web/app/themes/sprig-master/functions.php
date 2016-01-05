@@ -19,6 +19,26 @@
 	// Allow group write permissions on new files
 	umask(0002);
 
+	function getYTIDFromURL($url) {
+		$values = '';
+		if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {
+		  $values = $id[1];
+		} else if (preg_match('/youtube\.com\/embed\/([^\&\?\/]+)/', $url, $id)) {
+		  $values = $id[1];
+		} else if (preg_match('/youtube\.com\/v\/([^\&\?\/]+)/', $url, $id)) {
+		  $values = $id[1];
+		} else if (preg_match('/youtu\.be\/([^\&\?\/]+)/', $url, $id)) {
+		  $values = $id[1];
+		}
+		else if (preg_match('/youtube\.com\/verify_age\?next_url=\/watch%3Fv%3D([^\&\?\/]+)/', $url, $id)) {
+		    $values = $id[1];
+		}
+
+		echo $values;
+	}
+
+	add_action('getYTIDFromURL', 'getYTIDFromURL');
+
 	class LSSM extends TimberSite {
 
 		function __construct(){

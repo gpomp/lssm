@@ -9,7 +9,7 @@ include "common-elements.php";
 
 $context['post'] = new TimberPost();
 
-$context['isHome'] = true;
+$context['isHome'] = true; 
 
 $actuQuery = array(
     'post_type' => array('actu'),
