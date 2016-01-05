@@ -1,6 +1,9 @@
 //Typography specific styles
 
 body {
+	@media #{$small} {
+        height: 300px;
+    }
 }
 
 body,
@@ -9,6 +12,14 @@ input,
 select,
 textarea {
 	font-size: 150%;
+
+	@media #{$small} {
+		font-size: 130%;
+	}
+
+	@media #{$phone} {
+		font-size: 110%;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,16 +33,28 @@ h1 {
 	font-size: 350%;
 	color: $dominant;
 	margin-bottom: $vertMargin;
+
+	@media #{$phone} {
+		font-size: 290%;
+	}
 }
 
 h2 {
 	font-size: 240%;
 	margin-bottom: $vertMargin;
+
+	@media #{$phone} {
+		font-size: 200%;
+	}
 }
 
 p {
 	margin-bottom: 10px;
 	line-height: 120%;
+
+	@media #{$phone} {
+		font-size: 110%;
+	}
 }
 
 b, strong {
@@ -94,4 +117,24 @@ small {
 
 big {
 	font-size: 125%;
+}
+
+
+body {
+	.gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
+
+		@media #{$small} {
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+
+		@media #{$phone} {
+			width: 100%;
+			float: none;
+			position: relative;
+			overflow: hidden;
+			margin-bottom: $vertMargin;
+		}
+	}
 }

@@ -19,7 +19,6 @@ body.formules {
                     display: block;
                     width: 100%;
                     height: 100%;
-                    background-image: url(http://fillmurray.com/500/300);
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
@@ -91,10 +90,24 @@ body.page-formule {
                     padding-bottom: $vertMargin;
                     margin-bottom: 24px;
 
+                    @media #{$small} {
+                        text-align: center;
+                    }
+
+                    @media #{$phone} {
+                        width: 100%;
+                    }
+
                     .img-holder {
                         display: inline-block;
                         width: 30%;
                         vertical-align:middle;
+
+                        @media #{$small} {
+                            width: 100%;
+                            margin-bottom: $vertMargin;
+                        }
+
                     }
 
                     .image {
@@ -134,11 +147,23 @@ body.page-formule {
             }
 
             .grid-ctn {
+                text-align: center;
+
+                .gr-4 {
+                    margin-bottom: $doublevertMargin;
+                }
+
                 .grid-block {
                     background: $dominant;
                     color: black;
                     padding-top: $doublevertMargin;
                     padding-bottom: $doublevertMargin;
+
+                    @media #{$small} {
+                        max-width: 300px;
+                        display: inline-block;
+                        width: 100%;
+                    }
 
                     .inner-block {
                         height: 100%;
@@ -180,6 +205,15 @@ body.page-formule {
                 height: 100px;
                 position:relative;
 
+                @media #{$small} {
+                    width: 33.33333%;
+                }
+
+                @media #{$phone} {
+                    width: 50%;
+                    float: left;
+                }
+
                 a {
                     display: block;
                     width: 100%;
@@ -207,7 +241,15 @@ body.page-formule {
 
             &.form {
                 .gr-6 {
+                    text-align: left;
                     margin-bottom: $vertMargin;
+                    @media #{$small} {
+                        width: 50%;
+                    }
+
+                    @media #{$phone} {
+                        width: 100%;
+                    }
                 }
 
                 .form-button {

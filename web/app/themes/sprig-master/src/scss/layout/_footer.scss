@@ -22,8 +22,20 @@
 footer {
     margin-top: 50px;
     background: black;
+
+    @media #{$small} {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @media #{$phone} {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     & > div.container {
-        padding: $doublevertMargin 0;
+        padding-top: $doublevertMargin;
+        padding-bottom: $doublevertMargin;
         color: white;
 
         .right {

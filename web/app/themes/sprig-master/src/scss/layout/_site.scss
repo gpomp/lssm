@@ -33,6 +33,14 @@
 
     margin-top: 400px;
 
+     @media #{$small} {
+        margin-top: 200px;
+     }
+
+     @media #{$phone} {
+        margin-top: 130px;
+     }
+
 
     .top-rotate {
             overflow: visible;
@@ -52,6 +60,18 @@
         overflow: hidden;
         padding-top: 25px;
         padding-bottom: 25px;
+
+
+        @media #{$small} {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+
+        @media #{$phone} {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
         &.dark {
             background: $secondBG;
@@ -77,6 +97,7 @@
     .grid-ctn {
         .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
             margin-bottom: $vertMargin;
+                
         }
     }
 }
@@ -133,7 +154,7 @@
             }
 
             .acc-drawer {
-                max-height: 1000px;
+                max-height: 1500px;
                 transition: max-height 0.4s ease-out;
             }
         }
@@ -162,6 +183,12 @@
             float: left;
             overflow: hidden;
             max-height: 170px;
+
+            @media #{$phone} {
+                width: 100%;
+                margin-bottom: $vertMargin;
+            }
+
             img {
                 min-width: 100%;
             }
@@ -185,6 +212,11 @@
             width: 70%;
             float: left;
             padding: 0 20px 0 15px;
+
+            @media #{$phone} {
+                width: 100%;
+                padding: 0;
+            }
 
             div.date {
                 position: relative;
@@ -239,6 +271,36 @@
                 background: $dominant;
                 color: white;
             }
+        }
+    }
+}
+
+
+#box-form {
+    .gr-6 {
+        @media #{$small} {
+            width: 50%;
+        }
+        @media #{$phone} {
+            width: 100%;
+        }
+    }
+}
+
+
+body.les-soeurs {
+    .gr-5 {
+        text-align: center;
+        img {
+            @media #{$phone} {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .gr-1 {
+        @media #{$phone} {
+            display: none;
         }
     }
 }

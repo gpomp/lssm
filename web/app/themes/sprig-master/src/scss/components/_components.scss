@@ -55,16 +55,29 @@ button, input, select, textarea {
             bottom: 0;
             left: 0;
             padding: 10px 10px 30px 10px;
+
+            @media #{$phone} {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                background: black;
+            }
         }
     }
 }
 
 .swiper-button-prev {
     @include icon(arrow-left);
+    @media #{$phone} {
+        display: none;
+    }
 }
 
 .swiper-button-next {
     @include icon(arrow-right);
+    @media #{$phone} {
+        display: none;
+    }
 }
 
 .swiper-button-prev, .swiper-button-next {
