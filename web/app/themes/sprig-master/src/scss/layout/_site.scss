@@ -292,9 +292,7 @@ body.les-soeurs {
     .gr-5 {
         text-align: center;
         img {
-            @media #{$phone} {
-                max-width: 100%;
-            }
+             max-width: 100%;
         }
     }
 
