@@ -9,12 +9,11 @@
 
         <div class="social"></div>
     </div>
-    <div class="logo"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></div>
+    <div class="logo"><a href="{{function('get_permalink', 4)}}"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></a></div>
     <nav class="main-nav content" role="navigation">
             <div>
 
                 <ul>
-                    <li id="menu-item-home" class="menu-item menu-item-type-home {% if post.slug == 'home' %} current {% endif %}"><a href="{{function('get_permalink', 4)}}">Accueil</a></li>
                 {% for item in menu.items %}
                     <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}} {{item.slug}} {% if post.slug == item.slug %} current {% endif %}"><a href="{{item.link}}">{{item.title}}</a></li>
                 {% endfor %}
