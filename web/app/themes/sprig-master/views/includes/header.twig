@@ -1,10 +1,4 @@
-{% if isHome %}
 <header class="banner navbar navbar-static-top" role="banner">
-{% elseif TimberImage(post.get_field('image_banniere')).src is empty %}
-<header class="banner navbar navbar-static-top" role="banner" style="background-image: url({{TimberImage(default.get_field('image_banniere')).src}}); background-size:cover; background-position: center; ">
-{% else %}
-<header class="banner navbar navbar-static-top" role="banner" style="background-image: url({{TimberImage(post.get_field('image_banniere')).src}}); background-size:cover; background-position: center;">
-{% endif %}
   <div class="container">
     <div class="head-contacts">
         <div class="contacts">
@@ -15,7 +9,7 @@
 
         <div class="social"></div>
     </div>
-
+    <div class="logo"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></div>
     <nav class="main-nav content" role="navigation">
             <div>
 

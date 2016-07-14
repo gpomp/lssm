@@ -13,6 +13,12 @@
         overflow: hidden;
         width: 100%;
     }
+
+    div[class^='gr-'], div[class*=' gr-'] {
+        img {
+            max-width: 100%;
+        }
+    }
 }
 
 .container {
@@ -31,7 +37,7 @@
     background: white;
     position: relative;
 
-    margin-top: 400px;
+    // margin-top: 400px;
 
      @media #{$small} {
         margin-top: 200px;
@@ -279,7 +285,7 @@
 #box-form {
     .gr-6 {
         @media #{$small} {
-            width: 50%;
+            width: 50%; 
         }
         @media #{$phone} {
             width: 100%;
@@ -300,5 +306,11 @@ body.les-soeurs {
         @media #{$phone} {
             display: none;
         }
+    }
+}
+
+body.page {
+    main#main {
+        margin: 50px 0;
     }
 }

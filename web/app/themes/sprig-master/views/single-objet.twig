@@ -1,0 +1,56 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="blog-wrapper">
+                <h1>{{ post.title }}</h1>
+                <div class="grid-ctn">
+                    <div class="gr-4"><img src="{{ TimberImage(post.image).src }}" alt="{{ TimberImage(post.image).alt }}"/></div>
+                    <div class="gr-8">
+                        {{ post.content }}
+
+                        {% if post.nombre_en_stock > 0 %}
+                        <div class="loc-vente">
+                            <strong>Disponibilité : </strong>
+                            <ul>
+                            {% for l in post.loc_vente %}
+                                <li>- en {{ l }} </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="stock">
+                            En stock: <div class="stock-nb">{{post.nombre_en_stock}}</div>
+                        </div>
+                        {% else %}
+                        <div class="no-stock">Produit en rupture de stock pour le moment.</div>
+                        {% endif %}
+
+                    </div>
+                </div>                
+
+                {% if related_products|length > 0 %}
+                <div class="related-products">
+                    <h3>Produits similaires</h3>
+                    <div class="grid-ctn">
+                        {% for product in related_products %}
+                            <div class="gr-3">
+                                <a href="{{product.link}}">
+                                    <img src="{{ TimberImage(product.image).src('medium') }}" alt="{{ TimberImage(product.image).alt }}"/>
+                                    <p>{{ product.title }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {# {% for cat in categories %}
+                    {{cat.name}}
+                {% endfor %} #}
+
+            </div>
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}

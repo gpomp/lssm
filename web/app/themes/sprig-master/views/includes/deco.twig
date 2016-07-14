@@ -1,6 +1,6 @@
 <div class="deco formule-ctn">
    <h2>{{ post.titre_deco }}</h2>
-
+   <div class="cat-descr">{{ post.description_deco }}</div>
    <div class="list">
        <ul>
             {% for item in post.get_field('deco') %}

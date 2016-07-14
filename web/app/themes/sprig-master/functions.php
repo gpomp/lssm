@@ -14,6 +14,17 @@
 	Timber::add_route('blog/page/:paged', function($params){
     	Timber::load_template('blog.php', false, 200, $params);
 	});
+
+
+	Timber::add_route('locationvente/:catd/page/:paged', function($params){
+    	Timber::load_template('page-locvente-cat.php', false, 200, $params);
+	});
+
+
+	Timber::add_route('locationvente/:catd', function($params){
+    	Timber::load_template('page-locvente-cat.php', false, 200, $params);
+	});
+
 	
 
 	// Allow group write permissions on new files
@@ -120,6 +131,67 @@
 					),
 					'rewrite' => array(
 						'slug' => 'projet',
+					)
+				)
+			);
+
+			register_post_type( 'service',
+				array(
+					'labels' => array(
+						'name' => __( 'Service' ),
+						'singular_name' => __( 'Service' )
+					),
+					'public' => true,
+					'has_archive' => false,
+					'capability_type' => 'post',
+					'supports' => array(
+						'title',
+						'editor'
+					),
+					'taxonomies' => array(
+						'category',
+						'post_tag'
+					),
+					'rewrite' => array(
+						'slug' => 'service',
+					)
+				)
+			);
+
+			register_post_type( 'objet-cat',
+				array(
+					'labels' => array(
+						'name' => __( 'Categorie Objet' ),
+						'singular_name' => __( 'Categorie Objet' )
+					),
+					'public' => true,
+					'has_archive' => false,
+					'capability_type' => 'post',
+					'supports' => array(
+						'title',
+						'editor'
+					),
+					'rewrite' => array(
+						'slug' => 'objet-cat',
+					)
+				)
+			);
+
+			register_post_type( 'objet',
+				array(
+					'labels' => array(
+						'name' => __( 'Objet' ),
+						'singular_name' => __( 'Objet' )
+					),
+					'public' => true,
+					'has_archive' => false,
+					'capability_type' => 'post',
+					'supports' => array(
+						'title',
+						'editor'
+					),
+					'rewrite' => array(
+						'slug' => 'objet',
 					)
 				)
 			);

@@ -67,10 +67,12 @@ global.checkScroll = function(event) {
   if($(window).scrollTop() > 436) {
     if(!$("header.banner").hasClass('small')) {
       $("header.banner").addClass('small');
+      $("body").addClass('header-small');
     }    
   } else {
     if($("header.banner").hasClass('small')) {
       $("header.banner").removeClass('small');
+      $("body").removeClass('header-small');
     }
   }
 }

@@ -53,11 +53,10 @@ if(isset($_POST['formule'])) {
     } else {
         $context['confirmation'] = -1;
     }
-    
-
 }
 
 $context['post'] = new TimberPost();
+$context['categories'] = Timber::get_terms('category');
 
 $context['form'] = Timber::get_post(52);
 

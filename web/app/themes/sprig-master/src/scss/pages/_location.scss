@@ -1,0 +1,137 @@
+.loc-wrapper {
+  .grid-ctn {
+    margin-top: $doublevertMargin;
+    .gr-4 {
+      & > a {
+        position: relative;
+        display: block;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+        .inner {
+          width: 100%;
+          height: 100%;
+          background: $secondBG;
+          font-size: 150%;
+          text-transform: uppercase;
+          color: white;
+        }
+
+        &:hover {
+          text-decoration: none;
+          .inner {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loc-cat-wrapper {
+  .grid-ctn {
+    .row {
+      margin-bottom: $vertMargin;
+    }
+
+    .gr-4 {
+      & > a {
+        text-align: center;
+        display: block;
+
+        &:hover {
+          text-decoration: none;
+
+          p {
+            text-decoration: underline;
+          }
+        }
+
+        img {
+          display: block;
+          width: 100%;
+        }
+
+        p {
+          margin: 10px 0;
+          color: black;
+        }
+
+        &.no-stock {
+          pointer-events: none;
+          opacity: 0.5;
+
+          .stock {
+            color: red;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .cat-pagination {
+    text-align: center;
+    & > a, & > ul {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    & > ul li {
+      display: inline-block;
+    }
+  }
+}
+
+body.single-objet {
+  .loc-vente {
+    margin-top: $vertMargin;
+    ul {
+      margin-left: $vertMargin;
+    }
+  }
+
+  .stock {
+    margin-top: $vertMargin;
+
+    .stock-nb {
+      display: inline-block;
+      padding: 5px;
+      font-size: 140%;
+      border: 1px solid black;
+    }
+  }
+
+  .related-products {
+    margin-top: $doublevertMargin;
+
+    .grid-ctn {
+      margin-top: $doublevertMargin;
+      .gr-3 {
+        & > a {
+          text-align: center;
+          display: block;
+
+          &:hover {
+            text-decoration: none;
+
+            p {
+              text-decoration: underline;
+            }
+          }
+
+          img {
+            display: block;
+            width: 100%;
+          }
+
+          p {
+            margin: 10px 0;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <div class="themes formule-ctn">
    <h2>{{ post.titre_themes }}</h2>
-
+   <div class="cat-descr">{{ post.description_themes }}</div>
    <div class="list">
        <ul>
             {% for item in post.get_field('themes') %}

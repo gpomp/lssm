@@ -1,0 +1,28 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="loc-wrapper">
+              <h1>{{ post.title }}</h1>
+              <div>{{ post.content }}</div>
+              <div class="grid-ctn">
+                {% for cat in categories %}
+                  <div class="gr-4">
+                    <a href="{{ cat.id }}/page/1" style="background:url({{ TimberImage(cat.image).src }}) no-repeat center; background-size:cover;">
+                      <div class="inner">
+                        <div class="table">
+                          <div class="table-cell">
+                            {{ cat.title }}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+                {% endfor %}
+              </div>
+            </div>
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}

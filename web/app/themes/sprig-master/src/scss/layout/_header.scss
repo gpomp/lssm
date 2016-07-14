@@ -3,14 +3,14 @@ header.banner {
     min-height: 0;
     background: none;
     border-bottom: none;
-    color: white;
-    padding-top: 20px;
-    background: #393939;
-    position: fixed;
+    color: #393939;
+    padding-top: 5px;
+    // background: #393939;
+    // position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding-bottom: 400px;
+    // padding-bottom: 400px;
 
     @media #{$medium} {
         padding-top: 0;
@@ -21,28 +21,33 @@ header.banner {
     }
 
     @media #{$phone} {
-        background: #393939 !important;
+        // background: #393939 !important;
         padding-bottom: 130px;
     }
 
     .head-contacts {
         width: 100%;
-        padding: 12px;
-        background: $dominant;
+        text-align: right;
+        // padding: 12px;
+        // background: $dominant;
         position: relative;
         overflow: hidden;
-        border-radius: 30px;
+        // border-radius: 30px;
 
         @media #{$medium} {
             border-radius: 0;
         }
 
         div.contacts {
-            float:left;
+            float:right;
             & > div, & > a {
                 display: inline-block;
-                color: white;
+                font-size: 80%;
                 margin-right: 10px;
+                color: #393939;
+            }
+            & > a {
+                text-decoration: underline;
             }
         }
         
@@ -51,6 +56,15 @@ header.banner {
     .navbar-brand {
         display: none;
     } 
+
+    .logo {
+        max-width: 400px;
+        position: relative;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
 
     nav.main-nav {
         @include clearfix();
@@ -61,18 +75,22 @@ header.banner {
             padding-top: $vertMargin;
             padding-bottom: $vertMargin;
         }
+
+        ul {
+            text-align: center;
+        }
+
         ul > li {
             display: inline-block;
-            margin-right: 16px;
+            margin-right: 25px;
 
             a {
-                color: white;
+                color: #393939;
                 border-bottom: 1px solid transparent;
-                text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.59);
 
                 &:hover {
                     text-decoration: none;
-                    border-bottom-color: white;
+                    border-color: #393939;
                 }
             }
 
@@ -82,7 +100,7 @@ header.banner {
 
             &.current {
                 a {
-                    border-bottom-color: white;
+                    border-color: #393939;
                     pointer-events:none;
                 }
             }
@@ -94,15 +112,29 @@ header.banner {
         padding-bottom: 0;
         z-index: 10;
         background: rgba(0, 0, 0, 0.75) !important;
+        position: fixed;
+
+        .logo {
+            display: none;
+        }
+
         .head-contacts {
             display: none;
         }
 
         nav.main-nav {
+            & > div {
+                border-bottom-color: transparent;
+            }
             ul > li a {
                 text-shadow: none;
+                color: white;
             }
         }
 
     }
+}
+
+body.header-small {
+    padding-top: 436px;
 }

@@ -1,15 +1,23 @@
-<div class="deco formule-ctn">
+<div class="deco formule-ctn services">
    <h2>{{ post.titre_services }}</h2>
+   <div class="cat-descr">{{ post.description_services }}</div>
 
    <div class="list grid-ctn">
-      {% for item in post.get_field('services') %}
-          <div class="gr-3">
-            <a href="{{ item.liens }}">
-              <div class="table">
-                <div class="table-cell"><div class="link-center">{{ item.label }}</div></div>
-              </div>
-            </a>
-          </div>
+      {% for cat in categories %}
+
+        {% if cat.id == 3 %}
+          {% for child in cat.children %}
+            <div class="gr-4">
+              <h3>{{child.name}}</h3>
+              <ul>
+                {% for post in child.get_posts %}
+                  <li><a href="{{post.link}}">{{post.title}}</a>  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+
+        {% endif %}
       {% endfor %}
    </div>
 
