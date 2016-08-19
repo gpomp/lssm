@@ -12,6 +12,8 @@ global.init = function() {
   global.initScrollLinks();
 
   $(window).scroll(global.checkScroll);
+
+  $('form').submit(global.checkForm);
 }
 
 global.initScrollLinks = function() {
@@ -61,6 +63,43 @@ global.clickAccCTA = function(event) {
   event.preventDefault();
   $(".accordion .acc-ctn").removeClass('open');
   $(this).parent().addClass('open');
+}
+
+global.checkForm = function(event) {
+  var isSubmit = true;
+  var errors = $();
+  $(this).find(".mandatory").each(function(index) {
+    console.log($(this).val());
+    if(!$(this).val() || $(this).val().length == 0) {
+      isSubmit = false;
+      errors = $(errors).add($(this));
+    }
+
+    if($(this).hasClass("email") && !global.validateEmail($(this).val())) {
+      isSubmit = false;
+      errors = $(errors).add($(this));
+    }
+  });
+
+  if(!isSubmit) {
+    event.preventDefault();
+    $(errors).each(function(index) {
+      $(this).addClass("error");
+    });
+
+
+    $('form .error').focus(function() {
+      console.log('error');
+      $(this).removeClass("error");
+    });
+  } else {
+    $(this).find("button").addClass("disable");
+  }
+}
+
+global.validateEmail = function(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 global.checkScroll = function(event) {

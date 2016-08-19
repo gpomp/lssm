@@ -50,6 +50,12 @@
 
 	add_action('getYTIDFromURL', 'getYTIDFromURL');
 
+	function getObjectListExist() {
+		return isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0;
+	}
+
+	add_action('getObjectListExist', 'getObjectListExist');
+
 	class LSSM extends TimberSite {
 
 		function __construct(){

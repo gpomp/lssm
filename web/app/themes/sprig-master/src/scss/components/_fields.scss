@@ -78,6 +78,11 @@ input[type=text], input[type=number], input[type=email], textarea {
     &.tiny {
     	width: 100px;
     }
+
+    &.error {
+        border-color: red;
+        color: red;
+    }
 }
 
 input[type=submit] {
@@ -122,11 +127,4 @@ input[type=submit] {
 
 .select-style select:focus {
     outline: none;
-}
-
-form {
-	.error {
-		color: red;
-		margin-top: 10px;
-	}
 }

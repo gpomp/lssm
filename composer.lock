@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "da496c774313fd09d92ab43bd6fad9a4",
+    "hash": "519c0ade1b19733df753315aaa05a2d2",
+    "content-hash": "18490ebacd63a84e547ca765f24e021e",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -203,7 +204,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dannyvankooten/PHP-Router/zipball/a8b6e77ea7d4b442f6b9f85a395115232da0c1c7",
+                "url": "https://api.github.com/repos/dannyvankooten/PHP-Router/zipball/e9a479820b871ae4493fec30d5e433456767a505",
                 "reference": "e9a479820b871ae4493fec30d5e433456767a505",
                 "shasum": ""
             },
@@ -246,12 +247,12 @@
             "version": "0.21.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jarednova/timber.git",
+                "url": "https://github.com/timber/timber.git",
                 "reference": "ae8fb50dd2c2058950186ba1d65754a8feb49ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarednova/timber/zipball/ae8fb50dd2c2058950186ba1d65754a8feb49ed5",
+                "url": "https://api.github.com/repos/timber/timber/zipball/ae8fb50dd2c2058950186ba1d65754a8feb49ed5",
                 "reference": "ae8fb50dd2c2058950186ba1d65754a8feb49ed5",
                 "shasum": ""
             },
@@ -381,6 +382,66 @@
                 "wordpress"
             ],
             "time": "2015-06-11 15:15:30"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.phpmaileroauth.php",
+                    "class.phpmaileroauthgoogle.php",
+                    "class.smtp.php",
+                    "class.pop3.php",
+                    "extras/EasyPeasyICS.php",
+                    "extras/ntlm_sasl_client.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2016-06-06 09:09:37"
         },
         {
             "name": "roots/soil",
@@ -537,13 +598,13 @@
             "version": "1.4.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/advanced-custom-field-repeater-collapser/",
+                "url": "https://plugins.svn.wordpress.org/advanced-custom-field-repeater-collapser/",
                 "reference": "tags/1.4.1"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/advanced-custom-field-repeater-collapser.1.4.1.zip",
-                "reference": null,
+                "reference": "tags/1.4.1",
                 "shasum": null
             },
             "require": {
@@ -557,13 +618,13 @@
             "version": "4.4.0",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
+                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
                 "reference": "tags/4.4.0"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.4.4.0.zip",
-                "reference": null,
+                "reference": "tags/4.4.0",
                 "shasum": null
             },
             "require": {

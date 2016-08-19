@@ -20,6 +20,33 @@ for ($i=0; $i < intval($post->produits_similaires); $i++) {
   array_push($idArray, $post->{"produits_similaires_".$i."_objet"});
 }
 
+if(isset($_POST['add']) && $_POST['add'] == 0) {
+  if(!isset($_SESSION['objectList'])) {
+      $_SESSION['objectList'] = array();
+    }
+    
+    if(!in_array($post->ID, $_SESSION['objectList'])) {
+      $a = array(
+        "id" => $id,
+        "nb" => $_POST['nb']
+      );
+      array_push($_SESSION['objectList'], $a);
+    }
+    
+}
+
+if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
+
+  for ($i=0; $i < count($_SESSION['objectList']); $i++) { 
+    if($post->ID == $_SESSION['objectList'][$i]['id']) {
+      $context['inList'] = true;
+      break;
+    }
+  }
+
+  
+}
+
 // var_dump(get_object_vars($post));
 $args = array(
     'post_type' => 'objet',

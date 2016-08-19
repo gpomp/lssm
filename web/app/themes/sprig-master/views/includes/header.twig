@@ -17,7 +17,11 @@
                 {% for item in menu.items %}
                     <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}} {{item.slug}} {% if post.slug == item.slug %} current {% endif %}"><a href="{{item.link}}">{{item.title}}</a></li>
                 {% endfor %}
+                    {% if function('getObjectListExist') %}
+                    <li id="menu-item-{{menu.items|length}}" class="menu-item menu-item-{{menu.items|length}} {% if post.slug == 'wishlist' %} current {% endif %}"><a href="{{function('get_permalink', 127)}}">Wishlist</a></li>
+                    {% endif %}
                 </ul>
+                
             </div>
     </nav>
   </div>

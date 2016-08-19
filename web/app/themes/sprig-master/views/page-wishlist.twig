@@ -1,0 +1,71 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="wishlist-wrapper">
+              <h1>{{ post.title }}</h1>
+
+              {% if messageSent == 1 %}
+                <h2>WishList bien envoyée!</h2>
+                <p>Merci! Les soeurs s'en mèlent vous contacterons très bientôt!</p>
+              {% else %}
+                {% if messageSent == 2 %}
+                  <h2>Oups! Un problème est survenu</h2>
+                  <p>{{mailError}}</p>
+                  <p>Merci de réessayer ci-dessous.</p>
+                {% endif %}                
+                {% if error == 1 %}
+                  <div class="error">La wishlist est vide. Merci de commencer par selectionner des produits dans la page <a href="{{function('get_permalink', 118)}}">Location/Vente</a></div>
+                {% else %}
+                  <ul>
+                  {% for product in posts %}
+                    <li>
+                      <div class="grid-ctn">
+                        <div class="gr-2"><img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/></div>
+                        <div class="gr-4"><h2>{{product.title}}</h2></div>
+                        <div class="gr-3">Nombre: {{nbs[loop.index0]}}</div>
+                        <div class="gr-2">
+                          <form method="POST" action="">
+                            <input type="hidden" id="send" name="del" value="{{product.id}}">
+                            <button type="submit">
+                              <span>Supprimer</span>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  {% endfor %}
+                  </ul>
+
+                  <div class="send form">
+                    <form method="post" action="">
+                      <div class="grid-ctn">
+                        <div class="gr-6">
+                          <input class="mandatory" type="text" id="surname" name="surname" placeholder="prénom">
+                        </div>
+                        <div class="gr-6">
+                          <input class="mandatory" type="text" id="lastname" name="lastname" placeholder="nom">
+                        </div>
+                        <div class="gr-12">
+                          <input class="mandatory email" type="email" id="email" name="email" placeholder="email">
+                        </div>
+                        <div class="gr-12">
+                          <input type="hidden" id="send" name="send" value="1">
+                          <input type="hidden" id="yoyo" name="yoyo" value="yoyo4325435654654">
+                          <button type="submit">
+                            <span>Envoyer ma liste!</span>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                {% endif %}
+              {% endif %}
+
+              
+            </div>
+        </main><!-- #main -->
+    </div><!-- #primary -->
+{% endblock %}
