@@ -71,9 +71,14 @@ input, label {
 
 input[type=text], input[type=number], input[type=email], textarea {
     border: 1px solid #eeeeee;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 7px 4px;
     display: inline-block;
+
+    &.small {
+        width: 50%;
+        min-width: 250px;
+    }
 
     &.tiny {
     	width: 100px;
@@ -91,7 +96,7 @@ input[type=submit] {
 	background: $dominant;
 	color: white;
 	text-align: center;
-	border-radius: 10px;
+	border-radius: 3px;
 	border: 0;
 	text-transform: uppercase;
 }
@@ -127,4 +132,20 @@ input[type=submit] {
 
 .select-style select:focus {
     outline: none;
+}
+
+
+button {
+    margin-top: $vertMargin;
+    background: $dominant;
+    border: 1px solid white;
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+
+    &:hover {
+        background: white;
+        color: $dominant;
+        border-color:$dominant;
+    }
 }

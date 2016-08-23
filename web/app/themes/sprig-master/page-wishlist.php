@@ -41,21 +41,29 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
   if(isset($_POST['send']) && $_POST['send'] == 1) {
     if(isset($_POST['yoyo']) && $_POST['yoyo'] == 'yoyo4325435654654') {
 
-      $message = "Wishlist de ";
+      $message = "Liste de ";
 
       $message .= $_POST["surname"] . " ";
       $message .= $_POST["lastname"] . "\n";
       $message .= "email: " . $_POST["email"] . "\n\n";
 
-      $message .= "Produits:\n";
+      $message .= "Produits:\n\n";
+      $allIDs = array();
       for ($i=0; $i < count($_SESSION['objectList']); $i++) { 
-        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . " Nombre: " . $_SESSION['objectList'][$i]['nb'] . "\n";
+        array_push($allIDs, $_SESSION['objectList'][$i]['id']);
+      }
+
+      $objectsToSend = Timber::get_posts($allIDs);
+
+      for ($i=0; $i < count($objectsToSend); $i++) { 
+
+        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\nNombre: " . $_SESSION['objectList'][$i]['nb'] . "\n\n";
       }
 
       $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient
       $mail->addReplyTo($_POST["email"], 'Email Client');
       
-      $mail->Subject = 'Wishlist';
+      $mail->Subject = 'Nouvelle Commande';
       $mail->Body    = $message;
 
       if(!$mail->send()) {

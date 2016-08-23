@@ -93,7 +93,7 @@ global.checkForm = function(event) {
       $(this).removeClass("error");
     });
   } else {
-    $(this).find("button").addClass("disable");
+    $("#submit-form").prop('disabled', true);
   }
 }
 
@@ -103,15 +103,17 @@ global.validateEmail = function(email) {
 }
 
 global.checkScroll = function(event) {
-  if($(window).scrollTop() > 436) {
+  if($(window).scrollTop() > 400) {
     if(!$("header.banner").hasClass('small')) {
+      var height = $("header.banner").height();
       $("header.banner").addClass('small');
-      $("body").addClass('header-small');
+      $("body").addClass('header-small').css("padding-top", height + "px");
+
     }    
   } else {
     if($("header.banner").hasClass('small')) {
       $("header.banner").removeClass('small');
-      $("body").removeClass('header-small');
+      $("body").removeClass('header-small').css("padding-top", "0px");
     }
   }
 }
@@ -137,13 +139,20 @@ formule.init = function() {
   var maxHeight = 0;
 
   $(".formule-explain .grid-block").each(function() {
-    maxHeight = Math.max($(this).height(), maxHeight);
+    maxHeight = Math.max($(this).height() + 50, maxHeight);
   });
   $(".formule-explain .grid-block").height(maxHeight);
 }
 
 formule.initForm = function() {
-  $("#formule-form").validate();
+  $("#formule-form").validate({
+    submitHandler: function(form) {
+      // do other things for a valid form
+      
+      $("#submit-form").prop('disabled', true);
+      form.submit();
+    }
+  });
 }
 
 
@@ -153,7 +162,12 @@ $(document).ready(function() {
   } else if($("body").hasClass('home')) {
     home.init();
   } else if($("body").hasClass('box')) {
-    $("#box-form").validate();
+    $("#box-form").validate({
+      submitHandler: function(form) {
+        // do other things for a valid form
+        form.submit();
+      }
+    });
   }
 
   global.initSwiper();

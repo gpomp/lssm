@@ -37,16 +37,6 @@
     background: white;
     position: relative;
 
-    // margin-top: 400px;
-
-     @media #{$small} {
-        margin-top: 200px;
-     }
-
-     @media #{$phone} {
-        margin-top: 130px;
-     }
-
 
     .top-rotate {
             overflow: visible;
@@ -311,6 +301,6 @@ body.les-soeurs {
 
 body.page {
     main#main {
-        margin: 50px 0;
+        margin: 0 0;
     }
 }

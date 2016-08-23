@@ -27,19 +27,20 @@
                             {% if inList != true %}
                                 <form method="post" action="">
                                     <div class="grid-ctn">
+                                        <div class="gr-12"><h2>Commander ce produit</h2></div>
                                         <div class="gr-12"><label for="nb">Nombre désiré</label></div>
-                                        <div class="gr-12"><input class="mandatory" type="number" id="nb" name="nb"></div>
+                                        <div class="gr-12"><input class="tiny mandatory" type="number" id="nb" name="nb"></div>
                                         <div class="gr-12">
                                             <input type="hidden" id="add" name="add" value="0">
-                                            <button type="submit">
-                                                <span>Ajouter à la wishlist</span>
+                                            <button id="submit-form" type="submit">
+                                                <span>Ajouter à votre liste</span>
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                             {% else %}
                                 <div class="in-list">
-                                    <p>Ce produit est dans votre liste.</p>
+                                    <p><strong>Ce produit est dans votre liste.</strong></p>
                                     <p>Pour voir votre liste et l'envoyer à l'equipe des soeurs s'en melent <a href="{{function('get_permalink', 127)}}">Cliquez ici!</a></p>
                                 </div>
                             {% endif %}

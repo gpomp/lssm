@@ -1,0 +1,39 @@
+body.page-wishlist {
+    ul.product-list {
+        padding: 0 15px;
+        li {
+            padding: $vertMargin 0;
+            &.mod-line {
+                background: #EEE;
+            }
+
+            .mtop {
+                display: block;
+                margin-top: 40px;
+            }
+
+            button {
+                margin-top: 35px;
+                border-color: $dominant;
+            }
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+
+    .send.form {
+        margin-top: $doublevertMargin;
+        background: $dominant;
+        padding: $vertMargin 15px;
+
+        h2 {
+            color: white;
+        }
+
+        .last.gr-12 {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -16,15 +16,6 @@ header.banner {
         padding-top: 0;
     }
 
-    @media #{$small} {
-        padding-bottom: 200px;
-    }
-
-    @media #{$phone} {
-        // background: #393939 !important;
-        padding-bottom: 130px;
-    }
-
     .head-contacts {
         width: 100%;
         text-align: right;
@@ -61,6 +52,10 @@ header.banner {
         max-width: 400px;
         position: relative;
         margin: 0 auto;
+
+        @media #{$small} {
+            max-width: 200px;
+        }
         img {
             width: 100%;
         }
@@ -83,6 +78,10 @@ header.banner {
         ul > li {
             display: inline-block;
             margin-right: 25px;
+
+            @media #{$small} {
+                margin-right: 5px;
+            }
 
             a {
                 color: #393939;
@@ -136,5 +135,5 @@ header.banner {
 }
 
 body.header-small {
-    padding-top: 436px;
+    //padding-top: 436px;
 }

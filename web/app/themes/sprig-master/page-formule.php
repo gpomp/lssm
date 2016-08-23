@@ -6,6 +6,7 @@
 
 $context = Timber::get_context();
 include "common-elements.php";
+include "mail-config.php";
 
 if(isset($_POST['formule'])) {
     $to = get_option( 'admin_email' );
@@ -43,15 +44,16 @@ if(isset($_POST['formule'])) {
     Formule: $formule
     Autres details: $autre";
 
-    $headers = 'From: lessoeurs.senmelent@gmail.com' . "\r\n" .
-    'Reply-To: lessoeurs.senmelent@gmail.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient
+    $mail->addReplyTo($_POST["email"], '$prenom $nom');
+  
+    $mail->Subject = "$subject $prenom $nom";
+    $mail->Body    = $message;
 
-    
-    if(mail($to, $subject, $message, $headers)) {
-        $context['confirmation'] = 1;
-    } else {
+    if(!$mail->send()) {
         $context['confirmation'] = -1;
+    } else {
+        $context['confirmation'] = 1;
     }
 }
 

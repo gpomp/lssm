@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Template Name: Gallerie
+ * Description: Gallerie page
+ */
 
 global $paged;
 global $params;
@@ -16,7 +19,7 @@ $context = Timber::get_context();
 include "common-elements.php";
 
 $args = array(
-    'post_type' => array('actu'),
+    'post_type' => array('projet'),
     'posts_per_page' => 5,
     'paged' => $paged
 );
@@ -31,6 +34,6 @@ $context['posts'] = $posts;
 $context['pagination'] = Timber::get_pagination();
 
 //Template name: Blog
-Timber::render('page-blog.twig', $context);
+Timber::render('page-gallerie.twig', $context);
 
 ?>

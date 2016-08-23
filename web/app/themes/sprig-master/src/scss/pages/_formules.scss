@@ -78,6 +78,13 @@ body.page-formule {
 
                 ul, li {
                     list-style: disc;
+                    text-align: left;
+
+                    a {
+                        @media #{$small} {
+                            text-decoration: underline;
+                        }
+                    }
                 }
 
                 .list.grid-ctn {
@@ -186,7 +193,7 @@ body.page-formule {
                 }
 
                 .grid-block {
-                    background: $dominant;
+                    background: white;
                     color: black;
                     padding-top: $doublevertMargin;
                     padding-bottom: $doublevertMargin;
@@ -199,12 +206,12 @@ body.page-formule {
 
                     .inner-block {
                         height: 100%;
+                        position: relative;
                     }
 
                     .sep {
                         width: 100%;
                         text-align:center;
-                        color:white;
                     }
 
                     h3 {
@@ -223,6 +230,19 @@ body.page-formule {
                         width: 100%;
                         color:white;
                         text-align:center;
+                        padding: 6px 0;
+                        border-radius: 10px;
+                        background: #999;
+                        &:hover {
+                            text-decoration: none;
+                            background: $dominant;
+                        }
+                    }
+
+                    .rdv {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
                     }
 
                     .round-wrapper {
