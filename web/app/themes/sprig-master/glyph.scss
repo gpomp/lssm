@@ -32,14 +32,17 @@
 	@if $filename == arrow-right {
 		$char: "\E002";
 	}
-	@if $filename == facebook {
+	@if $filename == basket {
 		$char: "\E003";
 	}
-	@if $filename == instagram {
+	@if $filename == facebook {
 		$char: "\E004";
 	}
-	@if $filename == twitter {
+	@if $filename == instagram {
 		$char: "\E005";
+	}
+	@if $filename == twitter {
+		$char: "\E006";
 	}
 
 	@return $char;
@@ -61,6 +64,9 @@
 }
 .icon-arrow-right {
 	@include icon(arrow-right);
+}
+.icon-basket {
+	@include icon(basket);
 }
 .icon-facebook {
 	@include icon(facebook);

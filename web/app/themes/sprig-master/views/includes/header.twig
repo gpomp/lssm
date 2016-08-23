@@ -18,7 +18,7 @@
                     <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}} {{item.slug}} {% if post.slug == item.slug %} current {% endif %}"><a href="{{item.link}}">{{item.title}}</a></li>
                 {% endfor %}
                     {% if function('getObjectListExist') %}
-                    <li id="menu-item-{{menu.items|length}}" class="menu-item menu-item-{{menu.items|length}} {% if post.slug == 'wishlist' %} current {% endif %}"><a href="{{function('get_permalink', 127)}}">Ma Liste</a></li>
+                    <li id="menu-item-{{menu.items|length}}" class="menu-item menu-item-{{menu.items|length}} {% if post.slug == 'wishlist' %} current {% endif %}"><a href="{{function('get_permalink', 127)}}"><span class="icon-basket"></span> Ma Liste</a></li>
                     {% endif %}
                 </ul>
                 
