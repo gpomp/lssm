@@ -3,7 +3,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/../vendor/phpmailer/phpmailer/PHPMailerAutol
 
 $mail = new PHPMailer;
 
-$mail->SMTPDebug = 0;
+$mail->SMTPDebug = 2;
 $mail->Debugoutput = "html";
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
