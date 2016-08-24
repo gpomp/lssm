@@ -18,6 +18,7 @@ $context['post'] = $post;
 $url = get_field('video', $post);
 preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $url, $ytID);
 $context['ytID'] = $ytID[0];
+$context['isProject'] = true;
 
 $blog = Timber::query_post(17);
 $context['blogLink'] = $blog->permalink;

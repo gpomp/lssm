@@ -79,6 +79,7 @@ body.page-formule {
                 ul, li {
                     list-style: disc;
                     text-align: left;
+                    list-style-position: inside;
 
                     a {
                         @media #{$small} {

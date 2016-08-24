@@ -49,9 +49,10 @@ header.banner {
     } 
 
     .logo {
-        max-width: 400px;
+        max-width: 500px;
         position: relative;
         margin: 0 auto;
+        padding: $doublevertMargin 0;
 
         @media #{$small} {
             max-width: 200px;

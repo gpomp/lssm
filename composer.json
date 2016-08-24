@@ -30,7 +30,8 @@
 	},
 	"config": {
 		"preferred-install": "dist",
-		"generate-salts": true
+		"generate-salts": true,
+		"secure-http": false
 	},
 	"autoload": {
 		"psr-0": {"Roots\\Bedrock\\Installer": "scripts"}
@@ -53,7 +54,8 @@
 		"wpackagist-plugin/advanced-custom-fields": "4.4.0",
 		"wpackagist-plugin/advanced-custom-field-repeater-collapser": "1.4.1",
 		"dannyvankooten/php-router": "dev-master#e9a479820b871ae4493fec30d5e433456767a505",
-		"phpmailer/phpmailer": "^5.2"
+		"phpmailer/phpmailer": "^5.2",
+		"wpackagist-plugin/all-in-one-seo-pack": "2.3.9.1"
 	},
 	"extra": {
 		"installer-paths": {

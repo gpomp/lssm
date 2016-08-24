@@ -36,7 +36,11 @@
                 {% endif %}
 
                 <div class="single-footer">
-                    <a class="round-btn" href="{{function('get_permalink', 17)}}">Revenir au blog</a>
+                    {% if isProject == true %}
+                    <a class="round-btn" href="{{function('get_permalink', 266)}}">Revenir au Blog</a>
+                    {% else %}
+                    <a class="round-btn" href="{{function('get_permalink', 17)}}">Revenir à la Gallerie</a>
+                    {% endif %}
                 </div>
 
             </div>

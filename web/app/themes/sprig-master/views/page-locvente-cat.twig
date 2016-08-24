@@ -9,13 +9,13 @@
               <div class="grid-ctn">
                 <div class="row">
                 {% for post in posts %}
-                  {% if (loop.index - 1) is divisible by(3) %}
+                  {% if (loop.index - 1) is divisible by(4) %}
                     </div>
                     <div class="row">
                   {% endif %}
-                  <div class="gr-4">
+                  <div class="gr-3">
                     <a href="{{ post.link }}" class="{% if post.nombre_en_stock <= 0 %} no-stock {% endif %}">
-                      <img src="{{ TimberImage(post.image).src('medium') }}" alt="{{ TimberImage(post.image).alt }}" />
+                      <img src="{{ TimberImage(post.image).src('thumbnail') }}" alt="{{ TimberImage(post.image).alt }}" />
                       <p>{{ post.title }}</p>
                       {% if post.nombre_en_stock <= 0 %} <p class="stock">Article en rupture de stock.</p> {% endif %}
                     </a>

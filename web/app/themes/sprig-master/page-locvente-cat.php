@@ -16,6 +16,8 @@ if(count($params) < 2) {
 $context = Timber::get_context();
 include "common-elements.php";
 
+$_SESSION['locCat'] = $params["catd"];
+
 $args = array(
     'post_type' => 'objet',
     'posts_per_page' => 12,

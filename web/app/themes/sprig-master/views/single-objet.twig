@@ -60,13 +60,17 @@
                         {% for product in related_products %}
                             <div class="gr-3">
                                 <a href="{{product.link}}">
-                                    <img src="{{ TimberImage(product.image).src('medium') }}" alt="{{ TimberImage(product.image).alt }}"/>
+                                    <img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/>
                                     <p>{{ product.title }}</p>
                                 </a>
                             </div>
                         {% endfor %}
                     </div>
                 </div>
+                {% endif %}
+
+                {% if locCat != -1 %}
+                    <a class="round-btn" href="/locationvente/{{locCat}}/page/1">Revenir à la Catégorie</a>
                 {% endif %}
 
                 {# {% for cat in categories %}
