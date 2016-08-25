@@ -65,6 +65,10 @@ label {
     }
 }
 
+label.error {
+    background: red;
+}
+
 input, label {
     width: 100%;
 }
@@ -148,4 +152,27 @@ button {
         color: $dominant;
         border-color:$dominant;
     }
+}
+
+
+span.mention {
+    color: white;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+::-webkit-input-placeholder {
+   color: #888;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #888;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #888;  
+}
+
+:-ms-input-placeholder {  
+   color: #888;  
 }

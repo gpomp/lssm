@@ -8,7 +8,7 @@
 
               {% if messageSent == 1 %}
                 <h2>Votre list a bien été envoyée!</h2>
-                <p>Merci! Les soeurs s'en mèlent vous contacterons très bientôt!</p>
+                <p>Merci! Les soeurs s'en mèlent vous contacteront très bientôt!</p>
               {% else %}
                 {% if messageSent == 2 %}
                   <h2>Oups! Un problème est survenu</h2>
@@ -23,7 +23,14 @@
                     <li class="row {% if loop.index is divisible by(2) or loop.index == 0 %} mod-line {% endif %}">
                       <div class="gr-2"><img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/></div>
                       <div class="gr-4"><h3 class="mtop">{{product.title}}</h3></div>
-                      <div class="gr-3"><span class="mtop">Nombre: {{nbs[loop.index0]}}</span></div>
+                      <div class="gr-3"><span class="mtop">
+                          {% if types[loop.index0] == 0 %}
+                            Louer
+                          {% else %}
+                            Acheter
+                          {% endif %}
+                        x{{nbs[loop.index0]}}
+                      </span></div>
                       <div class="gr-2">
                         <form method="POST" action="">
                           <input type="hidden" id="send" name="del" value="{{product.id}}">
@@ -42,21 +49,22 @@
                       <div class="grid-ctn">
                         <div class="row">
                           <div class="gr-12">
-                            <input class="mandatory small" type="text" id="surname" name="surname" placeholder="prénom">
+                            <input class="mandatory small" type="text" id="surname" name="surname" placeholder="prénom*">
                           </div>
                           <div class="gr-12">
-                            <input class="mandatory small" type="text" id="lastname" name="lastname" placeholder="nom">
+                            <input class="mandatory small" type="text" id="lastname" name="lastname" placeholder="nom*">
                           </div>
                           <div class="gr-12">
-                            <input class="mandatory email small" type="email" id="email" name="email" placeholder="email">
+                            <input class="mandatory email small" type="email" id="email" name="email" placeholder="email*">
                           </div>
-                          <div class="gr-12 last">
+                          <div class="gr-12">
                             <input type="hidden" id="send" name="send" value="1">
                             <input type="hidden" id="yoyo" name="yoyo" value="yoyo4325435654654">
                             <button  id="submit-form" type="submit">
                               <span>Envoyer</span>
                             </button>
                           </div>
+                          <div class="gr-12 last"><span class="mention">*Les champs avec un astérisque sont obligatoires</span></div>
                         </div>
                       </div>
                     </form>

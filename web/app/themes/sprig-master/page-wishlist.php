@@ -30,13 +30,16 @@ if(isset($_POST['del'])) {
 if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
   $ids = array();
   $nbs = array();
+  $types = array();
   for ($i=0; $i < count($_SESSION['objectList']); $i++) { 
     array_push($ids, $_SESSION['objectList'][$i]['id']);
     array_push($nbs, $_SESSION['objectList'][$i]['nb']);
+    array_push($types, $_SESSION['objectList'][$i]['type']);
   }
 
   $context['posts'] = Timber::get_posts($ids);
   $context['nbs'] = $nbs;
+  $context['types'] = $types;
 
   if(isset($_POST['send']) && $_POST['send'] == 1) {
     if(isset($_POST['yoyo']) && $_POST['yoyo'] == 'yoyo4325435654654') {
@@ -57,7 +60,9 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
 
       for ($i=0; $i < count($objectsToSend); $i++) { 
 
-        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\nNombre: " . $_SESSION['objectList'][$i]['nb'] . "\n\n";
+        $locVente = ($_SESSION['objectList'][$i]['type'] == 0) ? "Louer" : "Acheter";
+
+        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\n$locVente x" . $_SESSION['objectList'][$i]['nb'] . "\n\n";
       }
 
       $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient

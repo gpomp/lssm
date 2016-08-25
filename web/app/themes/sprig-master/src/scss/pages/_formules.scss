@@ -293,6 +293,9 @@ body.page-formule {
             }
 
             &.form {
+                .mention {
+                    color: $dominant;
+                }
                 .gr-6 {
                     text-align: left;
                     margin-bottom: $vertMargin;

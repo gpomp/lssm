@@ -2,17 +2,32 @@ body.page-wishlist {
     ul.product-list {
         padding: 0 15px;
         li {
+            @media #{$small} {
+                .gr-2, .gr-3, .gr-4 {
+                    width: 25%;
+                    float: left;
+                    margin-bottom: 0;
+                }
+            }
+            
+
             padding: $vertMargin 0;
             &.mod-line {
                 background: #EEE;
             }
 
             .mtop {
+                @media #{$small} {
+                    margin-top: 0;
+                }
                 display: block;
                 margin-top: 40px;
             }
 
             button {
+                @media #{$small} {
+                    margin-top: 0;
+                }
                 margin-top: 35px;
                 border-color: $dominant;
             }

@@ -28,7 +28,8 @@ if(isset($_POST['add']) && $_POST['add'] == 0) {
     if(!in_array($post->ID, $_SESSION['objectList'])) {
       $a = array(
         "id" => $id,
-        "nb" => $_POST['nb']
+        "nb" => $_POST['nb'],
+        "type" => $_POST['locvente']
       );
       array_push($_SESSION['objectList'], $a);
     }

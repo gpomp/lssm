@@ -12,15 +12,15 @@
 
                         {% if post.nombre_en_stock > 0 %}
                         <div class="loc-vente">
-                            <strong>Disponibilité : </strong>
+                            Cet objet est disponible:
                             <ul>
                             {% for l in post.loc_vente %}
-                                <li>- en {{ l }} </li>
+                                <li>- <strong>en {{ l }}</strong> </li>
                             {% endfor %}
                             </ul>
                         </div>
                         <div class="stock">
-                            En stock: <div class="stock-nb">{{post.nombre_en_stock}}</div>
+                            <strong>Disponibilité :</strong> <div class="stock-nb">{{post.nombre_en_stock}}</div> en stock
                         </div>
 
                         <div class="add-to-list">
@@ -28,7 +28,26 @@
                                 <form method="post" action="">
                                     <div class="grid-ctn">
                                         <div class="gr-12"><h2>Commander ce produit</h2></div>
-                                        <div class="gr-12"><label for="nb">Nombre désiré</label></div>
+                                        <div class="gr-12">
+                                            Je veux
+                                            {% if post.loc_vente|length > 1 %}
+                                                *         
+                                                <input class="mandatory" type="radio" name="locvente" id="location" value="0"> <label for="location">Louer</label>
+                                                <input class="mandatory" type="radio" name="locvente" id="vente" value="1"> <label for="vente">Acheter</label>
+                                            {% else %}
+                                                {% for l in post.loc_vente %}
+                                                    {% if l == "Location" %}
+                                                        <input type="hidden" name="locvente" value="0">
+                                                        Louer
+                                                    {% else %}
+                                                        <input type="hidden" name="locvente" value="1">
+                                                        Acheter
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}     
+                                             cet article
+                                        </div>
+                                        <div class="gr-12"><label for="nb">Nombre désiré*</label></div>
                                         <div class="gr-12"><input class="tiny mandatory" type="number" id="nb" name="nb"></div>
                                         <div class="gr-12">
                                             <input type="hidden" id="add" name="add" value="0">
@@ -36,6 +55,7 @@
                                                 <span>Ajouter à votre liste</span>
                                             </button>
                                         </div>
+                                        <div class="gr-12"><span class="mention">*Les champs avec un astérisque sont obligatoires</span></div>
                                     </div>
                                 </form>
                             {% else %}
