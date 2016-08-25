@@ -90,7 +90,7 @@
                 {% endif %}
 
                 {% if locCat != -1 %}
-                    <a class="round-btn" href="/locationvente/{{locCat}}/page/1">Revenir à la Catégorie</a>
+                    <a class="round-btn" href="{{function('get_permalink', locCat)}}">Revenir à la Catégorie {{ locCatName }}</a>
                 {% endif %}
 
                 {# {% for cat in categories %}

@@ -52,6 +52,7 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
 $context['locCat'] = -1;
 if(isset($_SESSION['locCat'])) {
   $context['locCat'] = $_SESSION['locCat'];
+  $context['locCatName'] = $_SESSION['locCatName'];
 }
 
 // var_dump(get_object_vars($post));

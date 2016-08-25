@@ -1,31 +1,33 @@
 <?php
 /*
- * Template Name: Location Vente Categorie
  * Description: Location page
  */
 global $params;
 
-if(!$params) {
-    $params = array(-1, 0);
+if(!isset($params["name"])) {
+   $params["name"] = 0;
 }
 
-if(count($params) < 2) {
-    array_push($params, 0);
+if(!isset($params["paged"])) {
+    $params["paged"] = 0;
 }
 
 $context = Timber::get_context();
 include "common-elements.php";
 
-$_SESSION['locCat'] = $params["catd"];
+$context['post'] = new TimberPost();
+
+$_SESSION['locCat'] = $context['post']->id;
+$_SESSION['locCatName'] = $context['post']->title;
 
 $args = array(
     'post_type' => 'objet',
     'posts_per_page' => 12,
-    'paged' => array_values($params)[1],
+    'paged' => $params["paged"],
     'meta_query' => array(
         array(
             'key' => 'categorie',
-            'value' => array_values($params)[0],
+            'value' => $context['post']->id,
             'compare' => 'IN'
         )
     )

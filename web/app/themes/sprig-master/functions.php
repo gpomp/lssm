@@ -11,18 +11,21 @@
 	* 	Add custom timber routes
 	*/
 
-	Timber::add_route('blog/page/:paged', function($params){
-    	Timber::load_template('blog.php', false, 200, $params);
+	Routes::map('blog/page/:paged', function($params){
+    	Routes::load('blog.php', $params);
 	});
 
-
-	Timber::add_route('locationvente/:catd/page/:paged', function($params){
-    	Timber::load_template('page-locvente-cat.php', false, 200, $params);
+	Routes::map('gallerie/page/:paged', function($params){
+    	Routes::load('page-gallerie.php', $params);
 	});
 
+	Timber::add_route('objet-cat/:name', function($params){
+		$params['paged'] = 0;
+    Timber::load_template('single-objet-cat.php', false, 200, $params);
+	});
 
-	Timber::add_route('locationvente/:catd', function($params){
-    	Timber::load_template('page-locvente-cat.php', false, 200, $params);
+	Timber::add_route('objet-cat/:name/page/:paged', function($params){
+    	Timber::load_template('single-objet-cat.php', false, 200, $params);
 	});
 
 	
@@ -56,6 +59,12 @@
 
 	add_action('getObjectListExist', 'getObjectListExist');
 
+	function pif_disable_redirect_canonical($redirect_url) {
+		if (is_singular('objet-cat')) $redirect_url = false;
+		return $redirect_url;
+	}
+	add_filter('redirect_canonical','pif_disable_redirect_canonical');
+
 	class LSSM extends TimberSite {
 
 		function __construct(){
@@ -67,6 +76,7 @@
 			add_filter('timber_context', array($this, 'add_to_context'));
 			add_filter('get_twig', array($this, 'add_to_twig'));
 			add_filter('wp_handle_upload', array($this, 'handle_upload'));
+
 
 			update_option('large_size_w', 1920);
 			update_option('large_size_h', 1920);
@@ -170,6 +180,7 @@
 						'name' => __( 'Categorie Objet' ),
 						'singular_name' => __( 'Categorie Objet' )
 					),
+					'rewrite' => array( 'slug' => 'objet-cat' ),
 					'public' => true,
 					'has_archive' => false,
 					'capability_type' => 'post',

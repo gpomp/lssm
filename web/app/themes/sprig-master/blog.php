@@ -17,7 +17,7 @@ include "common-elements.php";
 
 $args = array(
     'post_type' => array('actu'),
-    'posts_per_page' => 5,
+    'posts_per_page' => 1,
     'paged' => $paged
 );
 query_posts($args);

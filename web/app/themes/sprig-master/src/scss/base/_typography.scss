@@ -51,6 +51,7 @@ h2 {
 p {
 	margin-bottom: 10px;
 	line-height: 120%;
+	margin-top: 0;
 
 	@media #{$phone} {
 		font-size: 110%;
