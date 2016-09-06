@@ -23,9 +23,11 @@ global.initScrollLinks = function() {
 global.scrollClick = function(event) {
   event.preventDefault();
   var name = $(this).attr('href').substring(1);
-  var target = $('a[name=' + name + ']');
+  var target = $('a[name=' + name + ']'); 
 
-  $('body').stop().animate({ scrollTop: target.offset().top - 65 }, '500', 'swing');
+  console.log('scroll click', parseInt(target.offset().top - 65) + "px");
+
+  $('body,html').stop().animate({ scrollTop: parseInt(target.offset().top - 65) + "px" }, '500', 'swing');
 }
 
 global.initSwiper = function() {

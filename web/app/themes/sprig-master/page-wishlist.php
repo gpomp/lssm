@@ -50,7 +50,7 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
       $message .= $_POST["lastname"] . "\n";
       $message .= "email: " . $_POST["email"] . "\n\n";
 
-      $message .= "Produits:\n\n";
+      $message .= "Bonjour\nMerci de votre confiance. Nous vous contacterons très bientôt pour conclure votre commande. Voici la liste des produits :\n\n";
       $allIDs = array();
       for ($i=0; $i < count($_SESSION['objectList']); $i++) { 
         array_push($allIDs, $_SESSION['objectList'][$i]['id']);
@@ -60,15 +60,19 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
 
       for ($i=0; $i < count($objectsToSend); $i++) { 
 
-        $locVente = ($_SESSION['objectList'][$i]['type'] == 0) ? "Louer" : "Acheter";
+        $locVente = ($_SESSION['objectList'][$i]['type'] == 0) ? "Location de" : "Achat de";
+        $price = (int)(($_SESSION['objectList'][$i]['type'] == 0) ? $objectsToSend[$i]->prix_de_location : $objectsToSend[$i]->prix_de_vente) * $_SESSION['objectList'][$i]['nb'];
 
-        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\n$locVente x" . $_SESSION['objectList'][$i]['nb'] . "\n\n";
+        $messagePart = $locVente . " " . $_SESSION['objectList'][$i]['nb'] . " produits pour " . $price . "€\n\n";
+
+        $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\n" . $messagePart;
       }
 
       $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient
-      $mail->addReplyTo($_POST["email"], 'Email Client');
+      $mail->addAddress($_POST["email"], 'Les soeurs');     // Add a recipient
+      $mail->addReplyTo('lessoeurs.senmelent@gmail.com', 'Email Client');
       
-      $mail->Subject = 'Nouvelle Commande';
+      $mail->Subject = 'Nouvelle Commande sur les soeurs s\'en melent';
       $mail->Body    = $message;
 
       if(!$mail->send()) {

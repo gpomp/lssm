@@ -29,7 +29,12 @@
                           {% else %}
                             Acheter
                           {% endif %}
-                        x{{nbs[loop.index0]}}
+                        x{{nbs[loop.index0]}}<br>
+                        {% if types[loop.index0] == 0 %}
+                          = {{ product.prix_de_location * nbs[loop.index0] }}€
+                        {% else %}
+                          = {{ product.prix_de_vente * nbs[loop.index0] }}€
+                        {% endif %}
                       </span></div>
                       <div class="gr-2">
                         <form method="POST" action="">

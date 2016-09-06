@@ -15,7 +15,17 @@
                             Cet objet est disponible:
                             <ul>
                             {% for l in post.loc_vente %}
-                                <li>- <strong>en {{ l }}</strong> </li>
+                                <li>
+                                    - <strong>en {{ l }}</strong> 
+                                    pour
+                                    <strong>
+                                    {% if l == 'Location' %}
+                                        {{ post.prix_de_location }}€
+                                    {% else %}
+                                        {{ post.prix_de_vente }}€
+                                    {% endif %}
+                                    </strong> 
+                                </li>
                             {% endfor %}
                             </ul>
                         </div>
