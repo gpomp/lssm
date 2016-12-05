@@ -10,7 +10,7 @@ button, input, select, textarea {
 @import "comments";
 @import "wp-fixes";
 
-@import "../../node_modules/gridle/sass/gridle/gridle"; 
+@import "../../../node_modules/gridle/sass/gridle/gridle"; 
 
 @include gridle_setup( (
     context : 12,

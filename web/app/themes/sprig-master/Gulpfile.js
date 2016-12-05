@@ -15,6 +15,7 @@ var gulp =            require('gulp'),
     iconfont =        require('gulp-iconfont'),
     iconfontCss =     require('gulp-iconfont-css'),
     clean =           require('gulp-clean');
+    runSequence =     require('gulp-run-sequence');
 
 // == Clean Tasks == //
 
@@ -168,7 +169,9 @@ gulp.task('clean', ['clean-styles', 'clean-scripts']);
 // = Development Task = //
 gulp.task('dev', ['clean', 'font', 'vendor-dev', 'styles-dev', 'scripts-dev']);
 // = Build Task = //
-gulp.task('build', ['clean', 'font', 'vendor-build', 'styles-build', 'scripts-build']);
+gulp.task('build', function (callback) {
+  runSequence('clean', 'font', ['vendor-build', 'styles-build', 'scripts-build']);
+});
 // = Image Task = //
 gulp.task('imagemin', ['imageminify']);
 // = Default Task = //
