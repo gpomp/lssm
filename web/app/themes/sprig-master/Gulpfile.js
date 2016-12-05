@@ -58,17 +58,15 @@ gulp.task('font', function(){
 
 // = Only compiles SASS and autoprefixes = //
 gulp.task('styles-dev', function() {
-  return gulp.src('src/scss/*.scss')
+  return sass('src/scss/*.scss', { style: 'expanded' })
     .pipe(plumber())
-    .pipe(sass({ style: 'expanded' }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('dist/css/'));
 });
 // = Compiles SASS, autoprefixes then minifies the final version = //
 gulp.task('styles-build', function() {
-  return gulp.src('src/scss/*.scss')
+  return sass('src/scss/*.scss', { style: 'expanded' })
     .pipe(plumber())
-    .pipe(sass({ style: 'expanded' }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(gulp.dest('dist/css/'))
     .pipe(cssmin())
