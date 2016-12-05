@@ -5,113 +5,17 @@
         <main id="main" class="site-main" role="main">
 
             <div class="formule-wrapper">
-                
-                {# <div class="all-formule">
-                    <div class="block-content">
-                        <div class="container">
-                            <div class="content">
-                                <div class="formule-ctn intro">
-                                    <a name="intro"></a>
-                                    <h1>{{ post.title }}</h1>
-                                    <div class="text">{{ post.content }}</div>
-                                    
-                                    {% include "includes/swiper.twig" with 
-                                        { list: post.get_field('images') } 
-                                    %}
-
-                                </div>
-                            </div>
-                        </div>
+                {% for item in post.get_field('paragraphe') %}
+                    <div class="container grid-ctn">
+                        <div class="gr-4"><img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/></div>
+                        <div class="gr-1"></div>
+                        <div class="gr-7">{{item.texte}}</div>
+                        <div class="gr-12 bottom-link"><a href="{{item.liens}}">{{item.label_liens}}</a></div>
                     </div>
-                </div> #}
-
-                <div class="block-content dark">
-                    <div class="container">
-                        <div class="content formule-ctn formule-explain">
-                            <h2>Les differentes formules :</h2>
-                            <div class="grid-ctn">
-                                <div class="gr-4">
-                                    <div class="grid-block">
-                                        <div class="inner-block">
-                                            <h3>Formule 1</h3>
-                                            <p>La formule 1 comprend:</p>
-                                            <a class="normal scroll" href="#themes">{{ post.titre_themes }}</a>
-                                            <div class="rdv">
-                                                <div class="round-wrapper">
-                                                    <a class="round-btn scroll" href="#form">Prendre un rendez-vous</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="gr-4">
-                                    <div class="grid-block">
-                                        <div class="inner-block">
-                                            <h3>Formule 2</h3>
-                                            <p>La formule 2 comprend:</p>
-                                            <a class="normal scroll" href="#themes">{{ post.titre_themes }}</a>
-                                            <div class="sep">+</div>
-                                            <a class="normal scroll" href="#deco">{{ post.titre_deco }}</a>
-                                            <div class="rdv">
-                                                <div class="round-wrapper">
-                                                    <a class="round-btn scroll" href="#form">Prendre un rendez-vous</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="gr-4">
-                                    <div class="grid-block">
-                                        <div class="inner-block">
-                                            <h3>Formule 3</h3>
-                                            <p>La formule 3 comprend:</p>
-                                            <a class="normal scroll" href="#themes">{{ post.titre_themes }}</a>
-                                            <div class="sep">+</div>
-                                            <a class="normal scroll" href="#deco">{{ post.titre_deco }}</a>
-                                            <div class="sep">+</div>
-                                            <a class="normal scroll" href="#services">{{ post.titre_services }}</a>
-                                            <div class="rdv">
-                                                <div class="round-wrapper">
-                                                    <a class="round-btn scroll" href="#form">Prendre un rendez-vous</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {% endfor %}
+                <div class="container grid-ctn">
+                    <div class="gr-12 big_paragraph">{{post.extra_paragraphe}}</div>
                 </div>
-
-                <div class="block-content light">
-                    <div class="container">
-                        <div class="content">
-                            <a name="themes"></a>
-                            {% include('includes/themes.twig') %}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="block-content">
-                    <div class="container">
-                        <div class="content">
-                            <a name="deco"></a>
-                            {% include('includes/deco.twig') %}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="block-content light">
-                    <div class="container">
-                        <div class="content">
-                            <a name="services"></a>
-                            {% include('includes/services.twig') %}
-                        </div>
-                    </div>
-                </div>
-
                 <div class="block-content">
                     <div class="container">
                         <div class="content">
@@ -119,7 +23,7 @@
                             {% include('includes/form.twig') %}
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
         </div>
 

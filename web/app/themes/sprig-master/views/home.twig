@@ -3,8 +3,12 @@
 {% block content %}
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
-            
-
+            {# Images #}
+            <div class="container">
+                {% include "includes/swiper.twig" with 
+                    { list: post.get_field('slideshow') } 
+                %}
+            </div>
             <div class="block-content">
                 <div class="container">
                     <div class="grid-ctn blog-grid">
@@ -122,7 +126,7 @@
 
             <div class="block-content">
                 <div class="container">
-                    <h2>{{post.get_field('social_titre')}}</h2>
+                    {# <h2>{{post.get_field('social_titre')}}</h2> #}
                     <p>{{post.get_field('social_descr')}}</p>
                     <div class="social-ctn">
                         {% if default.facebook_liens|length != 0 %}

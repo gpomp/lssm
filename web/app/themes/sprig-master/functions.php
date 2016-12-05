@@ -28,6 +28,15 @@
     	Timber::load_template('single-objet-cat.php', false, 200, $params);
 	});
 
+	Timber::add_route('service-cat/:name', function($params){
+		$params['paged'] = 0;
+    Timber::load_template('single-service-cat.php', false, 200, $params);
+	});
+
+	Timber::add_route('service-cat/:name/page/:paged', function($params){
+    	Timber::load_template('single-service-cat.php', false, 200, $params);
+	});
+
 	
 
 	// Allow group write permissions on new files
@@ -151,6 +160,25 @@
 				)
 			);
 
+			register_post_type( 'service-cat',
+				array(
+					'labels' => array(
+						'name' => __( 'Categorie Service' ),
+						'singular_name' => __( 'Categorie Service' )
+					),
+					'public' => true,
+					'has_archive' => false,
+					'capability_type' => 'post',
+					'supports' => array(
+						'title',
+						'editor'
+					),
+					'rewrite' => array(
+						'slug' => 'service-cat',
+					)
+				)
+			);
+
 			register_post_type( 'service',
 				array(
 					'labels' => array(
@@ -163,10 +191,6 @@
 					'supports' => array(
 						'title',
 						'editor'
-					),
-					'taxonomies' => array(
-						'category',
-						'post_tag'
 					),
 					'rewrite' => array(
 						'slug' => 'service',

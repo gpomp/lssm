@@ -15,6 +15,7 @@ sql-dump-*.sql
 # Application
 web/app/plugins/*
 !web/app/plugins/acf-repeater/
+!web/app/plugins/wordpress-importer/
 web/app/uploads/*
 
 # Vendor (e.g. Composer)

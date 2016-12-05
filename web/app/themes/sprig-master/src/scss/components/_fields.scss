@@ -73,6 +73,18 @@ input, label {
     width: 100%;
 }
 
+.checkox {
+    input, label {
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    label {
+        margin-right: 15px;
+    }
+}
+
 input[type=text], input[type=number], input[type=email], textarea {
     border: 1px solid #eeeeee;
     border-radius: 3px;

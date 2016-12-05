@@ -12,6 +12,19 @@
     {% else %}
     <form id="formule-form" action="{{ post.permalink }}#form" method="post">
         <div class="grid-ctn">
+            <div class="gr-6 checkox">
+                <label for="deco">Décoration de l'événement</label>
+                <input checked type="checkbox" id="deco" name="deco">
+            </div>
+            <div class="gr-6 checkox">
+                <label for="orga">Organisation de l'événement</label>
+                <input type="checkbox" id="orga" name="orga">
+            </div>
+            <div class="gr-6">
+                <label for="bonus">Bonus choisi</label>
+                <textarea id="bonus" name="bonus"></textarea>
+            </div>
+            <div class="gr-12"></div>
             <div class="gr-6">
                 <label for="nom">Nom<div>*</div></label>
                 <input type="text" name="nom" id="nom" required>
@@ -93,16 +106,6 @@
         
         <div class="grid-ctn">
             <div class="gr-6">
-                <label for="formule">La formule qui vous intéresse<div>*</div></label>
-                <div class="select-style">
-                    <select id="formule" name="formule" required>
-                        <option>Formule 1</option>
-                        <option>Formule 2</option>
-                        <option>Formule 3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="gr-6">
                 <label for="date">Autres informations</label>
                 <textarea id="autre" name="autre"></textarea>
             </div>
@@ -112,9 +115,6 @@
             
         </div>
         <div class="gr-12"><span class="mention">*Les champs avec un astérisque sont obligatoires</span></div>
-            
-            
-        
     </form>
 
     {% endif %}

@@ -59,6 +59,20 @@ body.page-formule {
 
         }
 
+        .grid-ctn {
+            margin-top: 60px;
+
+            .bottom-link {
+                text-align: right;
+                text-transform: uppercase;
+            }
+
+            .big_paragraph {
+                font-size: 200%;
+                text-align: center;
+            }
+        }
+
         .swiper-intro {
             width: 100%;
             height: 610px;

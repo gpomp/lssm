@@ -16,7 +16,13 @@
                 {# {% for cat in categories %}
                     {{cat.name}}
                 {% endfor %} #}
-
+                {% if servCat != -1 %}
+                    <div class="grid-ctn">
+                        <div class="gr-12">
+                            <a class="round-btn" href="{{function('get_permalink', servCat)}}">Revenir à la Catégorie {{ servCatName }}</a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
 
         </main><!-- #main -->

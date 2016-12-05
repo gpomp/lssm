@@ -20,7 +20,7 @@ include "common-elements.php";
 
 $args = array(
     'post_type' => array('projet'),
-    'posts_per_page' => 5,
+    'posts_per_page' => 10,
     'paged' => $paged
 );
 query_posts($args);

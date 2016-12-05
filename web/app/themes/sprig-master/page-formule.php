@@ -25,10 +25,12 @@ if(isset($_POST['formule'])) {
     $nombre = $_POST['nombre'];
     $evjour = $_POST['ev-jour'];
     $evmois = $_POST['ev-mois'];
-    $formule = $_POST['formule'];
     $autre = $_POST['autre'];
     $min = $_POST['minBudget'];
     $max = $_POST['maxBudget'];
+    $deco = $_POST['deco'] == 'Yes' ? 'Oui' : 'Non';
+    $orga = $_POST['orga'] == 'Yes' ? 'Oui' : 'Non';
+    $bonus = $_POST['bonus'];
 
     $message = "nom: $nom
     prenom: $prenom
@@ -41,7 +43,9 @@ if(isset($_POST['formule'])) {
     nombre d'invites: $nombre
     date de l'evenement: $evjour/$evmois
     Budget: de $min à $max euros
-    Formule: $formule
+    Décoration: $deco
+    Organisation: $orga
+    Bonus: $bonus
     Autres details: $autre";
 
     $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient

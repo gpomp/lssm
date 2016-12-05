@@ -20,6 +20,13 @@ $context['categories'] = Timber::get_terms('category');
 // Get only the first category from the array
 $context['category'] = reset( $categories );*/
 
+
+$context['servCat'] = -1;
+if(isset($_SESSION['servCat'])) {
+  $context['servCat'] = $_SESSION['servCat'];
+  $context['servCatName'] = $_SESSION['servCatName'];
+}
+
 Timber::render(array('single-service' . $post->ID . '.twig', 'single-service' . $post->post_type . '.twig', 'single-service.twig'), $context);
 
 
