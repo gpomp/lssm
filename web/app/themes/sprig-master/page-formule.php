@@ -12,7 +12,7 @@ if(isset($_POST['formule'])) {
     $to = get_option( 'admin_email' );
     $subject = 'Prise de contact';
 
-
+    echo 'deco'.$_POST['deco'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $tel = $_POST['tel'];
@@ -28,8 +28,8 @@ if(isset($_POST['formule'])) {
     $autre = $_POST['autre'];
     $min = $_POST['minBudget'];
     $max = $_POST['maxBudget'];
-    $deco = $_POST['deco'] == 'Yes' ? 'Oui' : 'Non';
-    $orga = $_POST['orga'] == 'Yes' ? 'Oui' : 'Non';
+    $deco = $_POST['deco'] == 'on' ? 'Oui' : 'Non';
+    $orga = $_POST['orga'] == 'on' ? 'Oui' : 'Non';
     $bonus = $_POST['bonus'];
 
     $message = "nom: $nom
