@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Location
+ * Template Name: Services
  * Description: Services page
  */
 
