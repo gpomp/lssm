@@ -2,7 +2,7 @@
   .grid-ctn {
     margin-top: $doublevertMargin;
     .gr-4 {
-      @media #{$phone} {
+      @media #{$small} {
         width: 50%;
         float: left;
       }
@@ -14,6 +14,11 @@
         height: 200px;
         overflow: hidden;
         margin-bottom: $doublevertMargin;
+
+        @media #{$small} {
+          margin-left: auto;
+          margin-right: auto;
+        }
 
         @media #{$phone} {
           margin: 0 auto;
@@ -151,6 +156,11 @@ body.single-objet {
       font-size: 140%;
       border: 1px solid black;
     }
+  }
+
+  div.error {
+    margin-top: $vertMargin;
+    color: red;
   }
 
   .related-products {

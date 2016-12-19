@@ -4,7 +4,7 @@
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
 
-            <div class="formule-wrapper">
+            <div class="formule-wrapper content">
                 {% for item in post.get_field('paragraphe') %}
                     <div class="container grid-ctn">
                         <div class="gr-4"><img src="{{ TimberImage(item.image).src }}" alt="{{ TimberImage(item.image).alt }}"/></div>

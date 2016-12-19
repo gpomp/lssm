@@ -58,7 +58,10 @@
                                              cet article
                                         </div>
                                         <div class="gr-12"><label for="nb">Nombre désiré*</label></div>
-                                        <div class="gr-12"><input class="tiny mandatory" type="number" id="nb" name="nb"></div>
+                                        <div class="gr-12"><input class="tiny mandatory {% if error == 1 %} error {% endif %}" type="number" id="nb" name="nb"></div>
+                                        {% if error == 1 %}
+                                            <div class="gr-12 error">{{errorMessage}}</div>
+                                        {% endif %}
                                         <div class="gr-12">
                                             <input type="hidden" id="add" name="add" value="0">
                                             <button id="submit-form" type="submit">

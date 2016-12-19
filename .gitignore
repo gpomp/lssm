@@ -32,6 +32,7 @@ bin
 
 # Bower
 web/app/themes/sprig-master/node_modules/
+web/app/themes/sprig-master/scss/
 web/app/themes/sprig-master/vendor/
 web/app/themes/sprig-master/dist/
 web/app/themes/sprig-master/.sass-cache/

@@ -19,6 +19,7 @@
                   <div class="error">Votre liste est vide. Merci de commencer par selectionner des produits dans la page <a href="{{function('get_permalink', 118)}}">Location/Vente</a></div>
                 {% else %}
                   <ul class="product-list grid-ctn">
+                  {% set total = 0 %}
                   {% for product in posts %}
                     <li class="row {% if loop.index is divisible by(2) or loop.index == 0 %} mod-line {% endif %}">
                       <div class="gr-2"><img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/></div>
@@ -32,8 +33,10 @@
                         x{{nbs[loop.index0]}}<br>
                         {% if types[loop.index0] == 0 %}
                           = {{ product.prix_de_location * nbs[loop.index0] }}€
+                          {% set total = total + product.prix_de_location * nbs[loop.index0] %}
                         {% else %}
                           = {{ product.prix_de_vente * nbs[loop.index0] }}€
+                          {% set total = total + product.prix_de_vente * nbs[loop.index0] %}
                         {% endif %}
                       </span></div>
                       <div class="gr-2">
@@ -46,6 +49,10 @@
                       </div>
                     </li>
                   {% endfor %}
+                    <li class="row total-row">
+                      <div class="gr-6">Total:</div>
+                      <div class="gr-5">{{total}}€</div>
+                    </li>
                   </ul>
 
                   <div class="send form">
@@ -61,6 +68,10 @@
                           </div>
                           <div class="gr-12">
                             <input class="mandatory email small" type="email" id="email" name="email" placeholder="email*">
+                          </div>
+                          <div class="gr-12 checkox">
+                            <input type="checkbox" id="tos" name="tos" class="mandatory">
+                            <label for="tos">j’ai lu et accepté <a href="{{function('get_permalink', 656)}}">les conditions générales de ventes</a></label>
                           </div>
                           <div class="gr-12">
                             <input type="hidden" id="send" name="send" value="1">
