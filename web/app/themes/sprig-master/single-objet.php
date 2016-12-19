@@ -20,7 +20,7 @@ for ($i=0; $i < intval($post->produits_similaires); $i++) {
   array_push($idArray, $post->{"produits_similaires_".$i."_objet"});
 }
 
-if (isset($_POST['add']) && $_POST['add'] == 0 && intval($_POST['nb']) < intval($post->nombre_en_stock)) {
+if (isset($_POST['add']) && $_POST['add'] == 0 && intval($_POST['nb']) <= intval($post->nombre_en_stock) && isset($_POST['locvente'])) {
   if(!isset($_SESSION['objectList'])) {
       $_SESSION['objectList'] = array();
     }
@@ -34,9 +34,16 @@ if (isset($_POST['add']) && $_POST['add'] == 0 && intval($_POST['nb']) < intval(
       );
       array_push($_SESSION['objectList'], $a);
     }
-} else {
+} else if(isset($_POST['add']) && $_POST['add'] == 0) {
+  $context['errorMessage'] = '';
   $context['error'] = 1;
-  $context['errorMessage'] = 'Selectionnez un nombre de produits inferieur à la quantité en stock.';
+  if(intval($_POST['nb']) > intval($post->nombre_en_stock)) {
+    $context['errorMessage'] .= "Séléctionnez un nombre de produits inferieur à la quantité en stock.<br/>";
+  }
+  if (!isset($_POST['locvente'])) {
+    $context['errorMessage'] .= "Merci de séléctionner si vous desirez acheter ou louer ce produit.<br/>";
+  }
+  
 }
 
 if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {

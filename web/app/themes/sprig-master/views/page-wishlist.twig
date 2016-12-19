@@ -57,22 +57,26 @@
 
                   <div class="send form">
                     <h2>Envoyer ma liste</h2>
-                    <form method="post" action="">
+                    <a name="form"></a>
+                    <form method="post" action="#form">
                       <div class="grid-ctn">
                         <div class="row">
                           <div class="gr-12">
-                            <input class="mandatory small" type="text" id="surname" name="surname" placeholder="prénom*">
+                            <input class="mandatory small" type="text" id="surname" name="surname" placeholder="prénom*" value="{{form_surname}}">
                           </div>
                           <div class="gr-12">
-                            <input class="mandatory small" type="text" id="lastname" name="lastname" placeholder="nom*">
+                            <input class="mandatory small" type="text" id="lastname" name="lastname" placeholder="nom*" value="{{form_name}}">
                           </div>
                           <div class="gr-12">
-                            <input class="mandatory email small" type="email" id="email" name="email" placeholder="email*">
+                            <input class="mandatory email small" type="email" id="email" name="email" placeholder="email*"  value="{{form_email}}">
                           </div>
                           <div class="gr-12 checkox">
                             <input type="checkbox" id="tos" name="tos" class="mandatory">
-                            <label for="tos">j’ai lu et accepté <a href="{{function('get_permalink', 656)}}">les conditions générales de ventes</a></label>
+                            <label for="tos">j’ai lu et accepté <a href="{{function('get_permalink', 656)}}">les conditions générales de ventes</a>*</label>
                           </div>
+                          {% if error == 2 %}
+                            <div class="gr-12 error">Merci d'accepter les conditions générales de ventes pour nous envoyer votre liste</div>
+                          {% endif %}
                           <div class="gr-12">
                             <input type="hidden" id="send" name="send" value="1">
                             <input type="hidden" id="yoyo" name="yoyo" value="yoyo4325435654654">

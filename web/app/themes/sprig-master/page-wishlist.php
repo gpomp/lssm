@@ -26,6 +26,10 @@ if(isset($_POST['del'])) {
   }
 }
 
+$context['form_name'] = '';
+$context['form_surname'] = '';
+$context['form_email'] = '';
+
 
 if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
   $ids = array();
@@ -41,7 +45,7 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
   $context['nbs'] = $nbs;
   $context['types'] = $types;
 
-  if(isset($_POST['send']) && $_POST['send'] == 1) {
+  if(isset($_POST['send']) && $_POST['send'] == 1 && isset($_POST['tos']) && $_POST['tos'] == 'on') {
     if(isset($_POST['yoyo']) && $_POST['yoyo'] == 'yoyo4325435654654') {
 
       $message = "Liste de ";
@@ -57,6 +61,7 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
       }
 
       $objectsToSend = Timber::get_posts($allIDs);
+      $total = 0;
 
       for ($i=0; $i < count($objectsToSend); $i++) { 
 
@@ -66,7 +71,11 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
         $messagePart = $locVente . " " . $_SESSION['objectList'][$i]['nb'] . " produits pour " . $price . "€\n\n";
 
         $message .= "ID: ".$_SESSION['objectList'][$i]['id'] . "\nNom: " . $objectsToSend[$i]->post_title . "\n" . $messagePart;
+
+        $total += $price;
       }
+
+      $message .= "\n Prix Total: $total euros";
 
       $mail->addAddress('lessoeurs.senmelent@gmail.com', 'Les soeurs');     // Add a recipient
       $mail->addAddress($_POST["email"], 'Les soeurs');     // Add a recipient
@@ -84,10 +93,19 @@ if(isset($_SESSION['objectList']) && count($_SESSION['objectList']) > 0) {
         $context['messageSent'] = 1;
       }
     }
+  } else {
+    if(isset($_POST['send']) && $_POST['send'] == 1 && (!isset($_POST['tos']) || $_POST['tos'] != 'on')) {
+      $context['error'] = 2;
+
+      $context['form_name'] = $_POST["lastname"];
+      $context['form_surname'] = $_POST["surname"];
+      $context['form_email'] = $_POST["email"];
+    }
   }
 
 } else {
   $context['error'] = 1;
+  
 }
 
 
