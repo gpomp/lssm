@@ -22,8 +22,8 @@
                   {% set total = 0 %}
                   {% for product in posts %}
                     <li class="row {% if loop.index is divisible by(2) or loop.index == 0 %} mod-line {% endif %}">
-                      <div class="gr-2"><img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/></div>
-                      <div class="gr-4"><h3 class="mtop">{{product.title}}</h3></div>
+                      <div class="gr-2"><a href="{{product.link}}"><img src="{{ TimberImage(product.image).src('thumbnail') }}" alt="{{ TimberImage(product.image).alt }}"/></a></div>
+                      <div class="gr-4"><h3 class="mtop"><a href="{{product.link}}">{{product.title}}</a></h3></div>
                       <div class="gr-3"><span class="mtop">
                           {% if types[loop.index0] == 0 %}
                             Louer
