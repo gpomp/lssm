@@ -9,7 +9,7 @@
               <div class="grid-ctn">
                 {% for cat in categories %}
                   <div class="gr-4">
-                    <a href="{{function('get_permalink', cat.id)}}/page/1" style="background:url({{ TimberImage(cat.image).src }}) no-repeat center; background-size:cover;">
+                    <a href="{{TimberPost(cat.id).link}}/page/1" style="background:url({{ TimberImage(cat.image).src }}) no-repeat center; background-size:cover;">
                       <div class="inner">
                         {{ cat.title }}
                       </div>

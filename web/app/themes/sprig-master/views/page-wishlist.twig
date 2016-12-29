@@ -16,7 +16,7 @@
                   <p>Merci de réessayer ci-dessous.</p>
                 {% endif %}                
                 {% if error == 1 %}
-                  <div class="error">Votre liste est vide. Merci de commencer par selectionner des produits dans la page <a href="{{function('get_permalink', 118)}}">Location/Vente</a></div>
+                  <div class="error">Votre liste est vide. Merci de commencer par selectionner des produits dans la page <a href="{{TimberPost(118).link}}">Location/Vente</a></div>
                 {% else %}
                   <ul class="product-list grid-ctn">
                   {% set total = 0 %}
@@ -72,7 +72,7 @@
                           </div>
                           <div class="gr-12 checkox">
                             <input type="checkbox" id="tos" name="tos" class="mandatory">
-                            <label for="tos">j’ai lu et accepté <a href="{{function('get_permalink', 656)}}">les conditions générales de ventes</a>*</label>
+                            <label for="tos">j’ai lu et accepté <a href="{{TimberPost(656).link}}">les conditions générales de ventes</a>*</label>
                           </div>
                           {% if error == 2 %}
                             <div class="gr-12 error">Merci d'accepter les conditions générales de ventes pour nous envoyer votre liste</div>

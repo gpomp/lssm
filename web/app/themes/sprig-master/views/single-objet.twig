@@ -75,7 +75,7 @@
                             {% else %}
                                 <div class="in-list">
                                     <p><strong>Ce produit est dans votre liste.</strong></p>
-                                    <p>Pour voir votre liste et l'envoyer à l'equipe des soeurs s'en melent <a href="{{function('get_permalink', 270)}}">Cliquez ici!</a></p>
+                                    <p>Pour voir votre liste et l'envoyer à l'equipe des soeurs s'en melent <a href="{{TimberPost(270).link}}">Cliquez ici!</a></p>
                                 </div>
                             {% endif %}
                         </div>
@@ -104,7 +104,7 @@
                 {% endif %}
 
                 {% if locCat != -1 %}
-                    <a class="round-btn" href="{{function('get_permalink', locCat)}}">Revenir à la Catégorie {{ locCatName }}</a>
+                    <a class="round-btn" href="{{TimberPost(locCat).link}}">Revenir à la Catégorie {{ locCatName }}</a>
                 {% endif %}
 
                 {# {% for cat in categories %}

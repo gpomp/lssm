@@ -7,7 +7,7 @@
 
         <div class="social"></div>
     </div>
-    <div class="logo"><a href="{{function('get_permalink', 4)}}"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></a></div>
+    <div class="logo"><a href="{{TimberPost(4).link}}"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></a></div>
     <nav class="main-nav content" role="navigation">
             <div>
 
@@ -16,7 +16,7 @@
                     <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}} {{item.slug}} {% if post.slug == item.slug %} current {% endif %}"><a href="{{item.link}}">{{item.title}}</a></li>
                 {% endfor %}
                     {% if function('getObjectListExist') %}
-                    <li id="menu-item-{{menu.items|length}}" class="menu-item menu-item-{{menu.items|length}} {% if post.slug == 'wishlist' %} current {% endif %}"><a href="{{function('get_permalink', 270)}}"><span class="icon-basket"></span> Ma Liste</a></li>
+                    <li id="menu-item-{{menu.items|length}}" class="menu-item menu-item-{{menu.items|length}} {% if post.slug == 'wishlist' %} current {% endif %}"><a href="{{TimberPost(270).link}}"><span class="icon-basket"></span> Ma Liste</a></li>
                     {% endif %}
                 </ul>
                 

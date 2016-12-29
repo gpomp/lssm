@@ -19,7 +19,7 @@
                 {% if servCat != -1 %}
                     <div class="grid-ctn">
                         <div class="gr-12">
-                            <a class="round-btn" href="{{function('get_permalink', servCat)}}">Revenir à la Catégorie {{ servCatName }}</a>
+                            <a class="round-btn" href="{{TimberPost(servCat).link}}">Revenir à la Catégorie {{ servCatName }}</a>
                         </div>
                     </div>
                 {% endif %}

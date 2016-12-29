@@ -37,9 +37,9 @@
 
                 <div class="single-footer">
                     {% if isProject == true %}
-                    <a class="round-btn" href="{{function('get_permalink', 266)}}">Revenir au Blog</a>
+                    <a class="round-btn" href="{{TimberPost(266).link}}">Revenir au Blog</a>
                     {% else %}
-                    <a class="round-btn" href="{{function('get_permalink', 17)}}">Revenir à la Gallerie</a>
+                    <a class="round-btn" href="{{TimberPost(17).link}}">Revenir à la Gallerie</a>
                     {% endif %}
                 </div>
 

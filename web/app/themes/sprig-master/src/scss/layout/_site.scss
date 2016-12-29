@@ -299,8 +299,12 @@ body.les-soeurs {
     }
 }
 
-body.page {
+body {
     main#main {
         margin: 0 0;
+        margin-top: $vertMargin;
+        @media #{$small} {
+            margin-top: 0;
+        }
     }
 }
