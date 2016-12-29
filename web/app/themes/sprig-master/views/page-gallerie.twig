@@ -19,20 +19,6 @@
 
                         <div class="blog-block">
                             <a href="{{blog_post.link}}">
-                                {% if blog_post.get_field('slideshow')[0] is defined %}
-                                {% set image = blog_post.get_field('slideshow')[0] %}
-                                    <div class="image">
-                                        {# <div class="type-band">
-                                            {% if blog_post.post_type == 'projet' %}
-                                                Projet
-                                            {% else %}
-                                                Actu
-                                            {% endif %}
-                                        </div> #}
-                                        <img src="{{TimberImage(blog_post.get_field('slideshow')[0].image).src('medium')}}">
-                                    </div>
-                                {% endif %}
-
                                 <div class="text">                                    
                                     <div class="date">
                                         <span class="day">{{blog_post.date('j')}}</span>
