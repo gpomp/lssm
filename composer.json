@@ -47,16 +47,16 @@
 	],
 	"require": {
 		"php": ">=5.4",
-		"johnpbloch/wordpress": "4.0.1",
+		"johnpbloch/wordpress": "4.7",
 		"composer/installers": "v1.0.12",
 		"roots/soil": "~3.0",
-		"jarednova/timber": "~0.20",
 		"wpackagist-plugin/advanced-custom-fields": "4.4.0",
 		"wpackagist-plugin/advanced-custom-field-repeater-collapser": "1.4.1",
 		"dannyvankooten/php-router": "dev-master#e9a479820b871ae4493fec30d5e433456767a505",
 		"phpmailer/phpmailer": "^5.2",
 		"wpackagist-plugin/all-in-one-seo-pack": "2.3.9.1",
-		"wpackagist-plugin/tinymce-advanced": "4.4.3"
+		"wpackagist-plugin/tinymce-advanced": "4.4.3",
+		"timber/timber": "^1.1"
 	},
 	"extra": {
 		"installer-paths": {

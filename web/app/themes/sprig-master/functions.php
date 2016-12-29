@@ -1,5 +1,6 @@
 <?php
-
+	
+	$timber = new \Timber\Timber();
 	if (!class_exists('Timber')){
 		add_action( 'admin_notices', function(){
 			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . admin_url('plugins.php#timber') . '">' . admin_url('plugins.php') . '</a></p></div>';
@@ -19,22 +20,22 @@
     	Routes::load('page-gallerie.php', $params);
 	});
 
-	Timber::add_route('objet-cat/:name', function($params){
+	Routes::map('objet-cat/:name', function($params){
 		$params['paged'] = 0;
-    Timber::load_template('single-objet-cat.php', false, 200, $params);
+    Routes::load('single-objet-cat.php', $params);
 	});
 
-	Timber::add_route('objet-cat/:name/page/:paged', function($params){
-    	Timber::load_template('single-objet-cat.php', false, 200, $params);
+	Routes::map('objet-cat/:name/page/:paged', function($params){
+    	Routes::load('single-objet-cat.php', $params);
 	});
 
-	Timber::add_route('service-cat/:name', function($params){
+	Routes::map('service-cat/:name', function($params){
 		$params['paged'] = 0;
-    Timber::load_template('single-service-cat.php', false, 200, $params);
+    Routes::load('single-service-cat.php', $params);
 	});
 
-	Timber::add_route('service-cat/:name/page/:paged', function($params){
-    	Timber::load_template('single-service-cat.php', false, 200, $params);
+	Routes::map('service-cat/:name/page/:paged', function($params){
+    	Routes::load('single-service-cat.php', $params);
 	});
 
 	
@@ -115,7 +116,7 @@
 
 			// This function call may trigger some actions to fire, which may
 			// add scripts and such to the header queue
-			get_header();
+			// get_header();
 
 			parent::__construct();
 		}
