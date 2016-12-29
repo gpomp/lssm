@@ -8,9 +8,9 @@
                 <div class="text-content">
                     {{ post.content }}
                 </div>
-                <ul class="grid-ctn  blog-grid">
+                <div class="grid-ctn  blog-grid">
                 {% for blog_post in posts %}
-                    <li class="gr-6">
+                    <div class="gr-6">
 
                         <div class="blog-block">
                             <a href="{{blog_post.link}}">
@@ -25,7 +25,6 @@
                                             {% endif %}
                                         </div> #}
                                         <img src="{{TimberImage(blog_post.get_field('slideshow')[0].image).src('medium')}}">
-                                        }
                                     </div>
                                 {% endif %}
 
@@ -42,9 +41,9 @@
                                 </div>
                             </a>
                         </div>
-                    </li>
+                    </div>
                 {% endfor %}
-                </ul>
+                </div>
 
                 <div class="pagination">
                     {% if pagination.prev %}

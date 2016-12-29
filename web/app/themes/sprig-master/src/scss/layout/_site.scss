@@ -161,10 +161,17 @@
 
 
 
+    body.gallerie & {
+        .blog-block {
+            margin-top: $triplevertMargin;
+            margin-bottom: $triplevertMargin;
+        }
+    }
+
     body.blog & {
         .blog-block {
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: $triplevertMargin;
+            margin-bottom: $triplevertMargin;
         }
     }
 
@@ -172,7 +179,7 @@
         position: relative;
         width: 100%;
         overflow: hidden;
-        color: black;
+        color: black; 
 
         div.image {
             width: 30%;
