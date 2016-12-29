@@ -43,6 +43,15 @@
 	// Allow group write permissions on new files
 	umask(0002);
 
+	function catch_that_image($content) {
+	  $first_img = '';
+	  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+	  if($output != 0 || $output != '0') {
+	  	$first_img = $matches [1] [0];
+	  }	  
+	  return $first_img;
+	}
+
 	function getYTIDFromURL($url) {
 		$values = '';
 		if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {

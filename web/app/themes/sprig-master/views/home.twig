@@ -12,18 +12,17 @@
             <div class="block-content content">
                 <div class="container">
                     <div class="grid-ctn blog-grid">
-                        <div class="gr-6">
-                            <h2>Derniere Actu</h2>                            
-                                {% if actu|length > 0 %}
+                        <div class="gr-6">                      
+                            {% if actu|length > 0 %}
+                                <h2>Derniere Actu</h2>      
                                 <div class="blog-block">
                                 {% set lastActu = actu[0] %}
+                                {% set image = function('catch_that_image', lastActu.content) %}
                                
-                                <a href="{{lastActu.link}}">
-                                {% if lastActu.get_field('slideshow')[0] is defined %}
-                                {% set image = lastActu.get_field('slideshow')[0] %}
-                                    <div class="image"><img src="{{TimberImage(lastActu.get_field('slideshow')[0].image).src('medium')}}"></div>
+                                <a href="{{lastActu.link}}" class="{% if image is not empty %}with-image{% endif %}">
+                                {% if image is not empty %}
+                                    <div class="image"><img src="{{image}}" /></div>
                                 {% endif %}
-
                                 <div class="text">                                    
                                     <div class="date">
                                         <span class="day">{{lastActu.date('j')}}</span>
@@ -43,14 +42,14 @@
 
                         </div>
                         <div class="gr-6">
-                            <h2>Dernier Projet</h2>
-                            {% if projet|length > 0 %}                            
+                            {% if projet|length > 0 %}
+                            <h2>Dernier Projet</h2>                        
                                 <div class="blog-block">
                                     {% set lastProjet = projet[0] %}
-                                    <a href="{{lastProjet.link}}">     
-                                    {% if lastProjet.get_field('slideshow')[0] is defined %}
-                                    {% set image = lastProjet.get_field('slideshow')[0] %}
-                                        <div class="image"><img src="{{TimberImage(lastProjet.get_field('slideshow')[0].image).src('medium')}}"></div>
+                                    {% set image = function('catch_that_image', lastProjet.content) %}
+                                    <a href="{{lastProjet.link}}" class="{% if image is not empty %}with-image{% endif %}">
+                                    {% if image is not empty %}
+                                        <div class="image"><img src="{{image}}" /></div>
                                     {% endif %}
                                     <div class="text">                           
                                         <div class="date">

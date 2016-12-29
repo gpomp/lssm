@@ -18,7 +18,11 @@
                     <div class="gr-6">
 
                         <div class="blog-block">
-                            <a href="{{blog_post.link}}">
+                            {% set image = function('catch_that_image', blog_post.content) %}
+                            <a href="{{blog_post.link}}" class="{% if image is not empty %}with-image{% endif %}">
+                                {% if image is not empty %}
+                                    <div class="image"><img src="{{image}}" /></div>
+                                {% endif %}
                                 <div class="text">                                    
                                     <div class="date">
                                         <span class="day">{{blog_post.date('j')}}</span>
