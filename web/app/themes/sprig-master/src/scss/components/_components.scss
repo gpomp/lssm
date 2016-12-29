@@ -83,3 +83,11 @@ button, input, select, textarea {
 .swiper-button-prev, .swiper-button-next {
     margin: 0;
 }
+
+.blog-wrapper .text-content {
+    @media #{$small} {
+        img {
+            max-width: 100%;
+        }
+    }
+}

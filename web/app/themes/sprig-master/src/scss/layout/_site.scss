@@ -261,6 +261,9 @@
         &.with-image {
             div.text {
                 width: 70%;
+                @media #{$small} {
+                    width: 100%;
+                }
             }
         }
     }
