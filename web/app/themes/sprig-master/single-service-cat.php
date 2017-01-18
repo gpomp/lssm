@@ -22,7 +22,7 @@ $_SESSION['servCatName'] = $context['post']->title;
 
 $args = array(
     'post_type' => 'service',
-    'posts_per_page' => 12,
+    'posts_per_page' => 50,
     'paged' => $params["paged"],
     'meta_query' => array(
         array(
