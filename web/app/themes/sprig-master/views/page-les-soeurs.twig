@@ -3,12 +3,13 @@
 {% block content %}
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
+            <h1 class="padding-bottom">Les soeurs</h1>
             <div class="grid-ctn">
                 <div class="gr-4"><img src="{{ TimberImage(post.photo).src }}" alt="{{ TimberImage(post.photo).alt }}"/></div>
                 <div class="gr-1"></div>
                 <div class="gr-7">{{post.get_field('description')}}</div>
             </div>
-            <h1>L'atelier</h1>
+            <h1 class="padding-bottom">L'atelier</h1>
             <div class="grid-ctn">
                 <div class="gr-4"><img src="{{ TimberImage(post.photo_atelier).src }}" alt="{{ TimberImage(post.photo_atelier).alt }}"/></div>
                 <div class="gr-1"></div>

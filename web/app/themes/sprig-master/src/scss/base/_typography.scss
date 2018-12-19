@@ -1,9 +1,8 @@
 //Typography specific styles
-
 body {
-	@media #{$small} {
-        height: 300px;
-    }
+  @media #{$small} {
+    height: 300px;
+  }
 }
 
 body,
@@ -11,131 +10,156 @@ button,
 input,
 select,
 textarea {
-	font-size: 150%;
-
-	@media #{$small} {
-		font-size: 130%;
-	}
-
-	@media #{$phone} {
-		font-size: 110%;
-	}
+  font-size: 150%;
+  @media #{$small} {
+    font-size: 130%;
+  }
+  @media #{$phone} {
+    font-size: 110%;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
-    text-overflow: ellipsis;
-    padding: 0;
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
 }
 
 h1 {
-	font-size: 350%;
-	color: $dominant;
-	margin-bottom: $vertMargin;
-
-	@media #{$phone} {
-		font-size: 290%;
-	}
+  font-size: 350%;
+  color: $dominant;
+  margin-bottom: $vertMargin;
+  @media #{$phone} {
+    font-size: 290%;
+  }
+  &.padding-bottom {
+    margin: 25px 0 15px 0;
+    @media #{$phone} {
+      &:first-child {
+        margin: 0 0 15px 0;
+      }
+    }
+  }
 }
 
 h2 {
-	font-size: 240%;
-	margin-bottom: $vertMargin;
-
-	@media #{$phone} {
-		font-size: 200%;
-	}
+  font-size: 240%;
+  margin-bottom: $vertMargin;
+  @media #{$phone} {
+    font-size: 200%;
+  }
 }
 
 p {
-	margin-bottom: 10px;
-	line-height: 120%;
-	margin-top: 0;
-
-	@media #{$phone} {
-		font-size: 110%;
-	}
+  margin-bottom: 10px;
+  line-height: 120%;
+  margin-top: 0;
+  @media #{$phone} {
+    font-size: 110%;
+  }
 }
 
-b, strong {
-	font-weight: bold;
+b,
+strong {
+  font-weight: bold;
 }
 
-dfn, cite, em, i {
-	font-style: italic;
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
 }
 
 blockquote {
-	margin: 0 1.5em;
+  margin: 0 1.5em;
 }
 
 address {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 pre {
-	@include font-size(1.5);
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
+  @include font-size(1.5);
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
 }
 
-code, kbd, tt, var {
-	@include font-size(1.5);
+code,
+kbd,
+tt,
+var {
+  @include font-size(1.5);
 }
 
-abbr, acronym {
-	border-bottom: 1px dotted #000;
-	cursor: help;
+abbr,
+acronym {
+  border-bottom: 1px dotted #000;
+  cursor: help;
 }
 
-mark, ins {
-	text-decoration: none;
+mark,
+ins {
+  text-decoration: none;
 }
 
 sup,
 sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+  font-size: 75%;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup {
-	bottom: 1ex;
+  bottom: 1ex;
 }
 
 sub {
-	top: .5ex;
+  top: 0.5ex;
 }
 
 small {
-	font-size: 75%;
+  font-size: 75%;
 }
 
 big {
-	font-size: 125%;
+  font-size: 125%;
 }
 
-
 body {
-	.gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
-
-		@media #{$small} {
-			width: 100%;
-			position: relative;
-			overflow: hidden;
-		}
-
-		@media #{$phone} {
-			width: 100%;
-			float: none;
-			position: relative;
-			overflow: hidden;
-			margin-bottom: $vertMargin;
-		}
-	}
+  .gr-1,
+  .gr-2,
+  .gr-3,
+  .gr-4,
+  .gr-5,
+  .gr-6,
+  .gr-7,
+  .gr-8,
+  .gr-9,
+  .gr-10,
+  .gr-11,
+  .gr-12 {
+    @media #{$small} {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    @media #{$phone} {
+      width: 100%;
+      float: none;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: $vertMargin;
+    }
+  }
 }

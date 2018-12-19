@@ -4,56 +4,45 @@ header.banner {
     background: none;
     border-bottom: none;
     color: #393939;
-    padding-top: 5px;
-    // background: #393939;
+    padding-top: 5px; // background: #393939;
     // position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    // padding-bottom: 400px;
-
+    width: 100%; // padding-bottom: 400px;
     @media #{$medium} {
         padding-top: 0;
     }
-
     .head-contacts {
         width: 100%;
-        text-align: right;
-        // padding: 12px;
+        text-align: right; // padding: 12px;
         // background: $dominant;
         position: relative;
-        overflow: hidden;
-        // border-radius: 30px;
-
+        overflow: hidden; // border-radius: 30px;
         @media #{$medium} {
             border-radius: 0;
         }
-
         div.contacts {
-            float:right;
-            & > div, & > a {
+            float: right;
+            &>div,
+            &>a {
                 display: inline-block;
                 font-size: 80%;
                 margin-right: 10px;
                 color: #393939;
             }
-            & > a {
+            &>a {
                 text-decoration: underline;
             }
         }
-        
     }
-
     .navbar-brand {
         display: none;
-    } 
-
+    }
     .logo {
         max-width: 500px;
         position: relative;
         margin: 0 auto;
         padding: $doublevertMargin 0;
-
         @media #{$small} {
             max-width: 200px;
         }
@@ -61,17 +50,14 @@ header.banner {
             width: 100%;
         }
     }
-
     nav.main-nav {
         @include clearfix();
         width: 100%;
-
-        & > div {
+        &>div {
             padding-top: $vertMargin;
             padding-bottom: $vertMargin;
             border-bottom: 1px solid #757575;
         }
-
         .fanion {
             width: 100%;
             height: 29px;
@@ -80,82 +66,68 @@ header.banner {
             background-size: auto 29px;
             padding: 0;
             border: 0;
-
-             @media #{$small} {
+            @media #{$small} {
                 background: none;
-             }
+                height: 0;
+            }
         }
-
         ul {
             text-align: center;
         }
-
-        ul > li {
+        ul>li {
             display: inline-block;
             margin-right: 25px;
-
             @media #{$small} {
                 margin-right: 5px;
             }
-
             a {
                 color: #393939;
                 border-bottom: 1px solid transparent;
-
                 &:hover {
                     text-decoration: none;
                     border-color: #393939;
                 }
-
                 span.icon-basket {
                     font-size: 150%;
                     vertical-align: sub;
                 }
             }
-
             &:first-child {
                 padding-left: 0;
             }
-
             &.current {
                 a {
                     border-color: #393939;
-                    pointer-events:none;
+                    pointer-events: none;
                 }
             }
         }
     }
-
     &.small {
         padding-top: 0;
         padding-bottom: 0;
         z-index: 10;
         background: rgba(0, 0, 0, 0.75) !important;
         position: fixed;
-
         .logo {
             display: none;
         }
-
         .head-contacts {
             display: none;
         }
-
         nav.main-nav {
-            & > div {
+            &>div {
                 border-bottom-color: transparent;
             }
-            ul > li a {
+            ul>li a {
                 text-shadow: none;
                 color: white;
             }
-
             .fanion {
                 background: none;
                 height: 0;
             }
         }
-
     }
 }
 

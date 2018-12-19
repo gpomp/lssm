@@ -11,6 +11,7 @@ sql-dump-*.sql
 
 *.pem
 *.ppk
+*.sql
 
 # Application
 web/app/plugins/*
@@ -31,6 +32,7 @@ bin
 *.sublime-workspace
 
 # Bower
+node_modules/
 web/app/themes/sprig-master/node_modules/
 web/app/themes/sprig-master/scss/
 web/app/themes/sprig-master/vendor/
